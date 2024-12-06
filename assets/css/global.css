@@ -1,0 +1,37 @@
+:root {
+  --black: #262626;
+  --white: #ffffff;
+
+  /* Gold Shades */
+  --gold-100: #f0e2cf;
+  --gold-200: #e9d9c1;
+  --gold-300: #e3d0b4;
+  --gold-400: #dcc7a7;
+  --gold-450: #fde2ba;
+  --gold-500: #d6be9a;
+  --gold-600: #cfb48c;
+  --gold-700: #b79a6f;
+
+  /* Green Shades */
+  --green-100: #8ccf9a;
+  --green-200: #4f9162;
+  --green-300: #50c07d;
+  --green-400: #0f552b;
+
+  /* Grey Shades */
+  --grey-100: #c9c9c9;
+  --grey-200: #939393;
+  --grey-300: #5c5c5c;
+  --grey-400: #313131;
+
+  /* Red Shades */
+  --red-100: #cf8c8c;
+  --red-200: #943b3b;
+  --red-300: #cd4545;
+  --red-400: #550f0f;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
