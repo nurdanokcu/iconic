@@ -16,7 +16,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Iconic Modeling Agency',
       link: [
         { rel: 'icon', href: '/icon-light.png', type: 'image/png', media: '(prefers-color-scheme: dark)' },
         { rel: 'icon', href: '/icon-dark.png', type: 'image/png', media: '(prefers-color-scheme: light)' },
@@ -28,15 +27,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/fonts.css', '~/assets/css/global.css'],
   site: {
     url: process.env.APP_DOMAIN_URL,
+    name: 'Iconic Modeling Agency',
   },
   compatibilityDate: '2024-11-01',
-  eslint: {
-    config: {
-      stylistic: {
-        semi: true,
-      },
-    },
-  },
   pwa: {
     manifest: {
       name: 'Iconic Modeling Agency',
