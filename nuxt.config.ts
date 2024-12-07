@@ -30,6 +30,13 @@ export default defineNuxtConfig({
     name: 'Iconic Modeling Agency',
   },
   compatibilityDate: '2024-11-01',
+  eslint: {
+    config: {
+      stylistic: {
+        semi: true,
+      },
+    },
+  },
   pwa: {
     manifest: {
       name: 'Iconic Modeling Agency',

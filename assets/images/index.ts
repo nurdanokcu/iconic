@@ -1,0 +1,9 @@
+export { default as modelOne } from './model_1.png';
+export { default as modelTwo } from './model_2.png';
+export { default as modelThree } from './model_3.png';
+export { default as modelFour } from './model_4.png';
+export { default as modelFive } from './model_5.png';
+export { default as modelSix } from './model_6.png';
+export { default as projectOne } from './project_1.png';
+export { default as projectTwo } from './project_2.png';
+export { default as projectThree } from './project_3.png';

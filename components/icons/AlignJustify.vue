@@ -2,7 +2,7 @@
 defineProps({
   strokeClass: {
     type: String,
-    default: 'stroke-button-label',
+    default: 'stroke-border-primary',
   },
 });
 </script>
@@ -10,15 +10,16 @@ defineProps({
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
-    viewBox="0 0 14 14"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
     fill="none"
     :class="strokeClass"
   >
     <path
-      d="M0.5 7L6.40909 13L13.5 1"
+      d="M28 13.3333H4M28 24H4M28 8H4M28 18.6667H4"
       :stroke="strokeClass"
+      stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
     />

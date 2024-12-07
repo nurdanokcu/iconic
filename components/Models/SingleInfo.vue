@@ -6,10 +6,6 @@ defineProps({
     type: Object as PropType<TypeModel>,
     required: true,
   },
-  variant: {
-    type: String,
-    default: "default", // 'default' | 'compact' | 'blog'
-  },
 });
 </script>
 
@@ -19,14 +15,17 @@ defineProps({
       {{ model.name }}
     </p>
     <div class="flex items-end gap-4">
-      <div
-        class="flex flex-wrap gap-x-4 gap-y-2 text-sm leading-tight" >
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm leading-tight">
         <span v-for="(detail, index) in model.features" :key="index">
           {{ detail }}
         </span>
       </div>
-      <div class="flex items-center justify-center px-2 py-1 w-10 h-9 shrink-0 bg-white rounded-xs">
-        <img :src="model.category.icon" alt="Icon" class="w-full h-full object-contain" >
+      <div class="flex flex-col gap-1">
+        <CommonEventTag
+          v-for="(event, index) in model.events"
+          :key="index"
+          :icon="event.icon"
+        />
       </div>
     </div>
   </div>

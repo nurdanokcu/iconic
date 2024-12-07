@@ -8,10 +8,12 @@ interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant'];
   size?: ButtonVariants['size'];
   class?: HTMLAttributes['class'];
+  text?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',
+  text: '',
 });
 </script>
 
@@ -22,5 +24,6 @@ const props = withDefaults(defineProps<Props>(), {
     :class="cn(buttonVariants({ variant, size }), props.class)"
   >
     <slot />
+    <span v-if="text" class="pt-1">{{ text }}</span>
   </Primitive>
 </template>

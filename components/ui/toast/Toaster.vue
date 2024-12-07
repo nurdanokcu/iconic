@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { isVNode } from 'vue'
-import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport,ToastArrow } from '.'
-import { useToast } from './use-toast'
+import { isVNode } from 'vue';
+import { useToast } from './use-toast';
+import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport, ToastArrow } from '.';
 
-const { toasts } = useToast()
+const { toasts } = useToast();
 </script>
 
 <template>
   <ToastProvider>
-    <Toast v-for="toast in toasts" :key="toast.id" v-bind="toast">
+    <Toast
+      v-for="toast in toasts"
+      :key="toast.id"
+      v-bind="toast"
+    >
       <div class="flex gap-2 justify-between items-center w-full">
         <ToastArrow :variant="toast.variant ?? 'default'" />
         <div class="grid gap-1">
@@ -24,8 +28,7 @@ const { toasts } = useToast()
             </ToastDescription>
           </template>
         </div>
-        <ToastClose :variant="toast.variant ?? 'default'"
-        />
+        <ToastClose :variant="toast.variant ?? 'default'" />
       </div>
       <component :is="toast.action" />
     </Toast>

@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { Cross1Icon } from '@radix-icons/vue'
-import { ToastClose, type ToastCloseProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { Cross1Icon } from '@radix-icons/vue';
+import { ToastClose, type ToastCloseProps } from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
+import { cn } from '@/lib/utils';
 
 const props = defineProps<ToastCloseProps & {
-  class?: HTMLAttributes['class'],
-  variant?: 'default' | 'destructive' | 'error' | 'success' | 'warning' | 'info'
-}>()
+  class?: HTMLAttributes['class'];
+  variant?: 'default' | 'destructive' | 'error' | 'success' | 'warning' | 'info';
+}>();
 
 const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
+  const { class: _, ...delegated } = props;
 
-  return delegated
-})
+  return delegated;
+});
 const toastVariantClasses = computed(() => {
   switch (props.variant) {
     case 'success':
-      return 'text-icon-success hover:text-green-400'
+      return 'text-icon-success hover:text-green-400';
     case 'error':
-      return 'text-icon-error hover:text-red-400'
+      return 'text-icon-error hover:text-red-400';
     default:
-      return ''
+      return '';
   }
-})
+});
 </script>
 
 <template>
