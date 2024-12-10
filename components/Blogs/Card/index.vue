@@ -72,15 +72,3 @@ const classes = computed(() =>
     />
   </article>
 </template>
-
-<style scoped>
-.text-stroke {
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: #fff;
-}
-
-.text-stroke-dark {
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: #000;
-}
-</style>

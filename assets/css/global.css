@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --black: #262626;
   --white: #ffffff;
@@ -29,6 +33,111 @@
   --red-200: #943b3b;
   --red-300: #cd4545;
   --red-400: #550f0f;
+
+  /* Spacing */
+  --nav-height: 96px;
+  --max-content: 1600px;
+  --max-content-lg: 2400px;
+  --screen-height: calc(100vh - var(--nav-height));
+}
+@layer base {
+  :root {
+    --background: var(--white);
+    --foreground: var(--black);
+
+    --muted: var(--grey-100);
+    --muted-foreground: var(--grey-300);
+
+    --popover: var(--white);
+    --popover-foreground: var(--black);
+
+    --card: var(--white);
+    --card-foreground: var(--black);
+
+    --border: var(--gold-400);
+    --input: var(--gold-300);
+
+    --primary: var(--gold-700);
+    --primary-foreground: var(--white);
+
+    --secondary: var(--gold-200);
+    --secondary-foreground: var(--gold-700);
+
+    --accent: var(--green-300);
+    --accent-foreground: var(--white);
+
+    --destructive: var(--red-300);
+    --destructive-foreground: var(--white);
+
+    --ring: var(--gold-400);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: var(--grey-400);
+    --foreground: var(--white);
+
+    --muted: var(--grey-300);
+    --muted-foreground: var(--grey-100);
+
+    --popover: var(--grey-400);
+    --popover-foreground: var(--white);
+
+    --card: var(--grey-400);
+    --card-foreground: var(--white);
+
+    --border: var(--gold-400);
+    --input: var(--gold-300);
+
+    --primary: var(--gold-500);
+    --primary-foreground: var(--black);
+
+    --secondary: var(--gold-700);
+    --secondary-foreground: var(--gold-200);
+
+    --accent: var(--green-200);
+    --accent-foreground: var(--green-400);
+
+    --destructive: var(--red-200);
+    --destructive-foreground: var(--red-400);
+
+    --ring: var(--gold-500);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@layer utilities{
+  .max-content-centered {
+    @apply max-w-max-content mx-auto px-4 md:px-6;
+  }
+  .text-stroke-white {
+    -webkit-text-stroke-color: #fff;
+  }
+  .text-stroke-black {
+    -webkit-text-stroke-color: #000;
+  }
+  .text-stroke-button-label {
+    -webkit-text-stroke-color: var(--gold-300)
+  }
+  .text-stroke-text-secondary {
+    -webkit-text-stroke-color: var(--gold-700)
+  }
+   .text-stroke-sm {
+    -webkit-text-stroke-width: 0.1px;
+   } 
+    .text-stroke-md {
+      -webkit-text-stroke-width: 0.3px;
+    }
+    .text-stroke-lg {
+      -webkit-text-stroke-width: 0.5px;
+    }
 }
 
 html {

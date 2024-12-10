@@ -47,9 +47,9 @@ defineProps({
       </span>
       <span
         :class="
-          cn({
-            'text-stroke': variant === 'featured',
-            'text-stroke-dark': variant === 'default',
+          cn('text-stroke-sm', {
+            'text-stroke-white': variant === 'featured',
+            'text-stroke-black': variant === 'default',
           })
         "
       >

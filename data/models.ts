@@ -1,4 +1,15 @@
-import { modelOne, modelTwo, modelThree, modelFour, modelFive, modelSix } from '~/assets/images';
+import {
+  modelOne,
+  modelTwo,
+  modelThree,
+  modelFour,
+  modelFive,
+  modelSix,
+  modelSeven,
+  modelEight,
+  modelNine,
+  modelTen,
+} from '~/assets/images';
 import type { TypeModel } from '~/types/models';
 import { events } from '~/data/events';
 
@@ -47,15 +58,45 @@ export const models: TypeModel[] = [
   {
     ...singleModal,
     id: 5,
-    name: 'PRIYANKA',
+    name: 'LARA',
     featuredPhoto: modelFive,
     events: [events[0], events[1]],
   },
   {
     ...singleModal,
     id: 6,
-    name: 'DEEPIKA',
+    name: 'EMILIA',
     featuredPhoto: modelSix,
     events: [events[3]],
+  },
+];
+export const moreModels: TypeModel[] = [
+  {
+    ...singleModal,
+    id: 7,
+    name: 'Charlotte',
+    featuredPhoto: modelSeven,
+    events: [events[0], events[1], events[2]],
+  },
+  {
+    ...singleModal,
+    id: 8,
+    name: 'Hanna',
+    featuredPhoto: modelEight,
+    events: [events[3]],
+  },
+  {
+    ...singleModal,
+    id: 9,
+    name: 'Stella',
+    featuredPhoto: modelNine,
+    events: [events[1], events[2], events[3]],
+  },
+  {
+    ...singleModal,
+    id: 10,
+    name: 'Mia',
+    featuredPhoto: modelTen,
+    events: [events[0], events[3]],
   },
 ];

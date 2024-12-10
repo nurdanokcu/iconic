@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps({
-  strokeClass: {
+  color: {
     type: String,
-    default: 'stroke-border-primary',
+    default: "var(--gold-400)",
   },
 });
 </script>
@@ -14,11 +14,10 @@ defineProps({
     height="32"
     viewBox="0 0 32 32"
     fill="none"
-    :class="strokeClass"
   >
     <path
       d="M28 13.3333H4M28 24H4M28 8H4M28 18.6667H4"
-      :stroke="strokeClass"
+      :stroke="color"
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"

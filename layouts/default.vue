@@ -1,8 +1,7 @@
-<script setup></script>
-
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-screen flex-col ">
+    <LayoutNavbar class="fixed top-0 z-50"/>
     <slot></slot>
-    <TheFooter />
+    <LayoutFooter />
   </div>
 </template>

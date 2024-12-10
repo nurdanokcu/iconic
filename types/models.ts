@@ -1,4 +1,4 @@
-import { type TypeEvent } from "~/types/general";
+import type { TypeEvent } from '~/types/general';
 
 export interface TypeModel {
   id: number;

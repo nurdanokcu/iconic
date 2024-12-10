@@ -16,67 +16,38 @@ module.exports = {
     },
     extend: {
       colors: {
-        'border': 'hsl(var(--border))',
-        'input': 'hsl(var(--input))',
-        'ring': 'hsl(var(--ring))',
-        'background': 'hsl(var(--background))',
-        'foreground': 'hsl(var(--foreground))',
+        'border': 'var(--border)',
+        'input': 'var(--input)',
+        'ring': 'var(--ring)',
+        'background': 'var(--background)',
+        'foreground': 'var(--foreground)',
         'primary': {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
         },
         'secondary': {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
         },
         'destructive': {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: 'var(--destructive)',
+          foreground: 'var(--destructive-foreground)',
         },
         'muted': {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
         },
         'accent': {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-foreground)',
         },
         'popover': {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: 'var(--popover)',
+          foreground: 'var(--popover-foreground)',
         },
         'card': {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-        /* My Theme Colors */
-        'gold': {
-          100: '#f0e2cf',
-          200: '#e9d9c1',
-          300: '#e3d0b4',
-          400: '#dcc7a7',
-          450: '#fde2ba',
-          500: '#d6be9a',
-          600: '#cfb48c',
-          700: '#b79a6f',
-        },
-        'green': {
-          100: '#8ccf9a',
-          200: '#4f9162',
-          300: '#50c07d',
-          400: '#0f552b',
-        },
-        'grey': {
-          100: '#c9c9c9',
-          200: '#939393',
-          300: '#5c5c5c',
-          400: '#313131',
-        },
-        'red': {
-          100: '#cf8c8c',
-          200: '#943b3b',
-          300: '#cd4545',
-          400: '#550f0f',
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
         },
         'black': 'var(--black)',
         'white': 'var(--white)',
@@ -124,6 +95,12 @@ module.exports = {
         sm: '0.25rem',
         xs: '0.125rem',
       },
+      spacing: {
+        'nav': 'var(--nav-height)',
+        'max-content': 'var(--max-content)',
+        'max-content-lg': 'var(--max-content-lg)',
+        'screen-height': 'var(--screen-height)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
@@ -151,6 +128,7 @@ module.exports = {
       fontFamily: {
         montserrat: ['Montserrat', ...fontFamily.sans],
         foglihten: ['FoglihtenNo07', ...fontFamily.sans],
+        foglihtenAlt: ['FoglihtenNo07Alt', ...fontFamily.sans],
       },
     },
   },

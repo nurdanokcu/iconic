@@ -14,22 +14,28 @@ defineProps({
     type: String,
     required: true,
   },
+  size: {
+    type: String as PropType<'md' | 'lg'>,
+    default: 'md',
+  },
 });
 </script>
 
 <template>
-  <div
+  <span
     :class="
       cn(
-        'inline-flex items-center gap-2 rounded-md',
+        'inline-flex items-center gap-2 rounded-md w-fit px-2 py-1 leading-normal transition-all',
         variant === 'outline'
-          && 'px-2 py-1 border border-border-primary bg-surface-primary text-text-primary text-sm leading-tight',
+          && 'border border-border-primary bg-surface-primary text-text-primary',
         variant === 'solid'
-          && 'px-4 py-2 bg-surface-secondary border border-border-primary text-white text-xl leading-normal font-foglihten uppercase font-medium tracking-[1px]',
+          && 'bg-surface-secondary border border-border-primary text-white ',
+        size === 'md' && 'text-sm leading-tight',
+        size === 'lg' && 'text-xl uppercase font-foglihten px-4 py-2 tracking-[1px] font-medium',
       )
     "
   >
-    <div
+    <span
       v-if="icon"
       v-dompurify-html="icon"
       :class="
@@ -38,11 +44,11 @@ defineProps({
           'icon-primary': variant === 'outline',
         })
       "
-    ></div>
-    <span v-if="text" :class="cn(variant === 'solid' && 'pt-1')">
+    ></span>
+    <span v-if="text" :class="cn(size === 'lg' && 'pt-1')">
       {{ text }}
     </span>
-  </div>
+  </span>
 </template>
 
 <style>
@@ -51,6 +57,6 @@ defineProps({
 }
 
 .icon-primary path {
-  stroke: var(--color-text-primary);
+  stroke: var(--gold-700);
 }
 </style>

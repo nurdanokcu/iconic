@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     'nuxt-seo-utils',
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
+    '@formkit/auto-animate/nuxt',
   ],
   devtools: { enabled: true },
   app: {
