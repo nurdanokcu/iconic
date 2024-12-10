@@ -4,6 +4,10 @@ defineProps({
     type: String,
     default: 'white',
   },
+  opacity: {
+    type: Number,
+    default: 1,
+  },
 });
 </script>
 
@@ -15,7 +19,7 @@ defineProps({
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g opacity="0.1">
+    <g :opacity="opacity">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

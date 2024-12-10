@@ -28,7 +28,6 @@ defineProps({
   <swiper
     :slides-per-view="1"
     :space-between="30"
-    :auto-height="true"
     :grab-cursor="true"
     :modules="[Pagination, Autoplay]"
     :autoplay="{ delay: 4000 }"
@@ -37,14 +36,14 @@ defineProps({
     :pagination="{
       clickable: true,
     }"
-    :class="['models-swiper', `pagination-${paginationAlign}`]"
+    :class="['models-swiper w-full h-full', `pagination-${paginationAlign}`]"
   >
     <swiper-slide v-for="(image, index) in images" :key="index">
-      <div :class="heightClasses">
+      <div :class="heightClasses" class="w-full">
         <img
           :src="image"
           alt="Image"
-          class="grayscale object-cover w-full h-full slide-image"
+          class="grayscale object-cover w-full h-full slide-image object-center"
         />
       </div>
     </swiper-slide>
@@ -71,6 +70,11 @@ defineProps({
   text-align: left;
   padding: 0 0 32px 32px;
 }
+.pagination-center .swiper-pagination {
+  text-align: center;
+  padding: 0 0 8px 0;
+}
+
 .models-swiper .swiper-pagination-bullet {
   width: 8px;
   height: 8px;

@@ -58,7 +58,7 @@ if (route.query.event) {
 <template>
   <div class="max-content-centered py-12 flex flex-col gap-8">
     <div class="flex flex-col gap-4 lg:flex-row lg:justify-between sm:px-10">
-      <h1 class="text-stroke-black text-stroke-md font-foglihten text-5xl">
+      <h1 class="text-stroke-md font-foglihten text-5xl">
         Models for
       </h1>
       <div class="flex flex-wrap gap-2">

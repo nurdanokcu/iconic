@@ -6,4 +6,6 @@ export interface TypeModel {
   featuredPhoto: string;
   features: string[];
   events: TypeEvent[];
+  role: string;
+  slug: string;
 }

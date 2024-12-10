@@ -12,7 +12,7 @@ defineProps({
 <template>
   <span :class="'p-4 flex gap-4 items-end bg-surface-secondary text-white'">
     <span class="flex flex-col gap-4">
-      <p class="font-extrabold leading-normal text-2xl uppercase">
+      <p class="font-extrabold leading-tight text-2xl uppercase">
         {{ model.name }}
       </p>
       <span class="flex flex-wrap gap-x-4 gap-y-2 text-sm leading-tight">

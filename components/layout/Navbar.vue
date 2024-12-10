@@ -18,12 +18,8 @@ const close = () => {
     <nav
       class="max-content-centered py-6 flex items-center justify-between w-full"
     >
-      <NuxtLink to="/" class="h-10">
-        <img
-          class="h-10 object-contain"
-          src="/logo-horizontal.png"
-          alt="Iconic Logo"
-        />
+      <NuxtLink to="/" class="flex items-center gap-8">
+        <IconsLogoCombined color="var(--black)" class="h-auto" />
       </NuxtLink>
       <div class="hidden md:flex gap-4 items-center">
         <NuxtLink
@@ -52,13 +48,13 @@ const close = () => {
       >
         <div class="flex flex-col gap-4 p-4 py-6 items-center">
           <NuxtLink
-          v-for="link in menuLinks"
-          :key="link.text"
-          :to="link.to"
-          active-class="text-stroke-lg"
-        >
-          <Button :text="link.text" @click="close" variant="secondary" />
-        </NuxtLink>
+            v-for="link in menuLinks"
+            :key="link.text"
+            :to="link.to"
+            active-class="text-stroke-lg"
+          >
+            <Button :text="link.text" @click="close" variant="secondary" />
+          </NuxtLink>
         </div>
       </div>
     </nav>

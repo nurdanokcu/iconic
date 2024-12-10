@@ -97,6 +97,7 @@ module.exports = {
       },
       spacing: {
         'nav': 'var(--nav-height)',
+        'max-content-sm': 'var(--max-content-sm)',
         'max-content': 'var(--max-content)',
         'max-content-lg': 'var(--max-content-lg)',
         'screen-height': 'var(--screen-height)',

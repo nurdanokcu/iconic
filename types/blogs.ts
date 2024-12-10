@@ -6,6 +6,7 @@ export interface TypeBlog {
   featuredPhoto?: string;
   content: string;
   isFeatured: boolean;
+  slug: string;
   author: {
     id: number;
     name: string;

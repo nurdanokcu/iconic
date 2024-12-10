@@ -9,6 +9,7 @@ interface Props extends PrimitiveProps {
   size?: ButtonVariants["size"];
   class?: HTMLAttributes["class"];
   text?: string;
+  animateDirection?: "left" | "right";
   as?: "button" | "span";
 }
 
@@ -18,6 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   href: "",
   target: "_self",
   rel: "",
+  animateDirection: "left",
 });
 </script>
 
@@ -29,7 +31,10 @@ const props = withDefaults(defineProps<Props>(), {
   >
     <span
       v-if="variant === 'secondary'"
-      class="absolute bottom-0 right-0 h-0.5 bg-surface-secondary w-0 group-hover:w-full transition-all duration-500 link-line"
+      :class="cn('absolute bottom-0 h-0.5 bg-surface-secondary w-0 group-hover:w-full transition-all duration-500', {
+        'left-0': animateDirection === 'left',
+        'right-0': animateDirection === 'right',
+      })"
     ></span>
     <slot />
     <span v-if="text" class="pt-1">{{ text }}</span>

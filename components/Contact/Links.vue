@@ -33,6 +33,7 @@ const hoveredLink = ref("");
         <Button
           variant="secondary"
           class="w-full justify-between group-hover:text-stroke-md"
+          animate-direction="right"
           v-auto-animate
         >
           <component :is="link.icon" />

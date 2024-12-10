@@ -36,6 +36,7 @@
 
   /* Spacing */
   --nav-height: 96px;
+  --max-content-sm: 1200px;
   --max-content: 1600px;
   --max-content-lg: 2400px;
   --screen-height: calc(100vh - var(--nav-height));
@@ -113,34 +114,22 @@
     @apply bg-background text-foreground;
   }
 }
-@layer utilities{
+@layer utilities {
   .max-content-centered {
     @apply max-w-max-content mx-auto px-4 md:px-6;
   }
-  .text-stroke-white {
-    -webkit-text-stroke-color: #fff;
-  }
-  .text-stroke-black {
-    -webkit-text-stroke-color: #000;
-  }
-  .text-stroke-button-label {
-    -webkit-text-stroke-color: var(--gold-300)
-  }
-  .text-stroke-text-secondary {
-    -webkit-text-stroke-color: var(--gold-700)
-  }
-   .text-stroke-sm {
+  .text-stroke-sm {
     -webkit-text-stroke-width: 0.1px;
-   } 
-    .text-stroke-md {
-      -webkit-text-stroke-width: 0.3px;
-    }
-    .text-stroke-lg {
-      -webkit-text-stroke-width: 0.5px;
-    }
+  }
+  .text-stroke-md {
+    -webkit-text-stroke-width: 0.3px;
+  }
+  .text-stroke-lg {
+    -webkit-text-stroke-width: 0.5px;
+  }
 }
 
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }

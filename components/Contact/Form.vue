@@ -43,7 +43,9 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <form class="flex flex-col gap-4" @submit="onSubmit">
-    <Toaster />
+    <h5 class="font-foglihten text-4xl uppercase font-medium leading-snug">
+      Contact Form
+    </h5>
     <FormField v-slot="{ componentField }" name="username">
       <FormItem v-auto-animate>
         <FormLabel>Your Name</FormLabel>
@@ -74,7 +76,11 @@ const onSubmit = handleSubmit(async (values) => {
       <FormItem v-auto-animate>
         <FormLabel>Additional Message</FormLabel>
         <FormControl>
-          <Textarea id="message" placeholder="Type your message here" v-bind="componentField" />
+          <Textarea
+            id="message"
+            placeholder="Type your message here"
+            v-bind="componentField"
+          />
         </FormControl>
         <FormMessage />
       </FormItem>
@@ -92,5 +98,6 @@ const onSubmit = handleSubmit(async (values) => {
         <IconsSend v-else />
       </span>
     </Button>
+    <Toaster />
   </form>
 </template>

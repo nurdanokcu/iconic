@@ -1,74 +1,35 @@
 <script setup>
-const header = ref(null);
-let lastScrollY = 0;
 definePageMeta({
   layout: false,
 });
-/* const handleScroll = () => {
-  if (!header.value) return;
-  console.log('scrolling');
-
-  if (window.scrollY > lastScrollY && window.scrollY > 100) {
-    header.value.classList.add('scrolled');
-  } else {
-    header.value.classList.remove('scrolled');
-  }
-
-  lastScrollY = window.scrollY;
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-}); */
+import { decor } from "~/assets/images";
 </script>
 
 <template>
   <div>
-    <HomeHeader ref="header" class="header" />
-    <main class="relative min-h-screen bg-slate-600">
-      <!--  <section class="second-section">
-        <h2 class="text-2xl">
-          Scroll Down to See the Effect
-        </h2>
-      </section>
-      <section class="second-section">
-        <h2 class="text-2xl">
-          Another Section
-        </h2>
-      </section> -->
+    <HomeHeader ref="header" class="header w-full h-screen min-h-[720px] md:min-h-[820px] lg:min-h-[640px] max-w-max-content-lg mx-auto sticky top-0" />
+    <main class="relative bg-white z-50">
+      <LayoutNavbar class="sticky top-0 z-[100]" />
+      <HomeFeaturedProject
+        class="px-4 py-16 max-w-lg mx-auto lg:max-w-max-content-sm lg:px-20"
+      />
+      <div class="bg-surface-secondary my-16">
+        <HomePromotionalModels
+          class="px-4 py-16 max-w-lg mx-auto lg:max-w-max-content-sm lg:px-20"
+        />
+      </div>
+      <HomeBlogPosts
+        class="px-4 py-16 max-w-lg mx-auto lg:max-w-max-content-sm lg:px-20"
+      />
+      <img
+        class="w-full object-contain max-w-lg mx-auto my-6"
+        :src="decor"
+        alt="Decor"
+      />
+      <Contact
+        class="px-4 py-16 mx-auto lg:max-w-max-content-sm lg:px-20"
+      />
+      <LayoutFooter />
     </main>
   </div>
 </template>
-
-<style scoped>
-header {
-    height: 100vh;
-    max-width: 100%;
-    padding: 0 0 60px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 5;
-}
-.second-section {
-  align-content: center;
-  align-items: center;
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 10px;
-  height: min-content;
-  justify-content: flex-start;
-  overflow: visible;
-  padding: 0;
-  position: relative;
-  width: 100%;
-  height: 1000px;
-  z-index: 6;
-}
-</style>

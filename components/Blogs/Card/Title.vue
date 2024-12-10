@@ -45,14 +45,7 @@ defineProps({
       >
         Author
       </span>
-      <span
-        :class="
-          cn('text-stroke-sm', {
-            'text-stroke-white': variant === 'featured',
-            'text-stroke-black': variant === 'default',
-          })
-        "
-      >
+      <span class="text-stroke-sm">
         {{ authorName }}
       </span>
     </p>
