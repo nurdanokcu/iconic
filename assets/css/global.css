@@ -40,7 +40,7 @@
   --page-width-md: 1480px;
   --page-width-lg: 1800px;
   --page-width-xl: 2400px;
-  --screen-height: calc(100vh - var(--nav-height));
+  --screen-height: calc(100vh - var(--nav-height) - 32px);
 }
 @layer base {
   :root {

@@ -52,7 +52,7 @@ await fetchProject();
     <main>
       <ProjectsSingleContent :project="currentProject" class="px-4 md:px-6 max-w-lg md:max-w-page-width-lg mx-auto"/>
       <ProjectsSingleDetails :project="currentProject" class="py-16 md:max-w-page-width-lg overflow-visible mx-auto" />
-      <Contact class="py-16 max-content-centered-md" />
+      <Contact class="py-16 max-content-centered-md" title-tag="h2" />
     </main>
   </div>
 </template>

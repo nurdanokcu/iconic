@@ -21,6 +21,9 @@
       <div id="clients" class="absolute -top-nav"></div>
       <ProjectsClients class="max-content-centered-lg py-8" />
     </div>
-    <Contact class="px-4 py-16 mx-auto lg:max-w-page-width-md lg:px-20" />
+    <Contact
+      class="px-4 py-16 mx-auto lg:max-w-page-width-md lg:px-20"
+      title-tag="h3"
+    />
   </div>
 </template>

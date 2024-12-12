@@ -6,6 +6,13 @@ import { useToast } from "~/components/ui/toast/use-toast";
 const { toast } = useToast();
 import { pagePaths } from "~/config/paths";
 
+defineProps({
+  titleTag: {
+    type: String,
+    required: false,
+    default: "h5",
+  },
+})
 const isLoading = ref(false);
 
 const formSchema = toTypedSchema(
@@ -49,9 +56,11 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <form class="flex flex-col gap-4" @submit="onSubmit">
-    <h5 class="font-foglihten text-4xl uppercase font-medium leading-snug">
+    <component
+    :is="titleTag"
+    class="font-foglihten text-4xl uppercase font-medium leading-snug">
       Contact Form
-    </h5>
+    </component>
     <FormField v-slot="{ componentField }" name="username">
       <FormItem v-auto-animate>
         <FormLabel class="uppercase">Your Name</FormLabel>

@@ -3,7 +3,7 @@ import { footerLinks } from "~/config/paths";
 </script>
 
 <template>
-  <div class="flex gap-4 justify-center bg-text-primary text-white">
+  <div class="flex gap-2 sm:gap-4 justify-center bg-text-primary text-white">
     <LayoutFooterLink
       v-for="link in footerLinks"
       :key="link.to"
