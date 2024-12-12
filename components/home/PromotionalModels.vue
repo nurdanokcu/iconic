@@ -3,7 +3,6 @@ import { pagePaths } from "~/config/paths";
 import { models, moreModels } from "~/data/models";
 const allModels = [...models, ...moreModels];
 const randomEightModels = allModels.sort(() => 0.5 - Math.random()).slice(0, 8);
-const formPath = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
 </script>
 
 <template>
@@ -35,7 +34,7 @@ const formPath = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
         <NuxtLink
           v-for="model in randomEightModels"
           :key="model.id"
-          :to="`${pagePaths.models}/${model.slug}`"
+          :to="makeModelPath(model.slug)"
           class="flex flex-col gap-2 group"
         >
           <AspectRatio :ratio="1 / 1" class="relative overflow-hidden">

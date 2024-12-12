@@ -1,5 +1,3 @@
-<script setup lang="ts">
-</script>
 <template>
   <header class="text-surface-primary relative flex w-full">
     <h1 class="font-foglihten text-5xl sm:text-6xl leading-tight uppercase z-10 pr-24 flex items-start text-left">

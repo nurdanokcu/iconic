@@ -1,8 +1,8 @@
 <template>
   <div class="mt-nav">
     <div class="bg-text-secondary py-8 overflow-x-clip mb-8 relative">
-      <ProjectsHeader class="max-content-centered-lg pl-4 md:pl-6" />
-      <ProjectsList class="max-content-centered-lg pl-4 md:pl-6" />
+      <ProjectsHeader class="max-content-centered-lg" />
+      <ProjectsList class="" />
       <IconsDecor02
         class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 -z-[1]"
       />

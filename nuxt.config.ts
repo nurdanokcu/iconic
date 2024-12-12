@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@formkit/auto-animate/nuxt',
+    'nuxt-viewport'
   ],
   devtools: { enabled: true },
   app: {

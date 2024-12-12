@@ -9,6 +9,10 @@ const props = defineProps({
     type: Array as PropType<string[]>,
     required: true,
   },
+  ratio: {
+    type: Number,
+    default: 1,
+  },
 });
 
 // Swap the first and second images
@@ -36,13 +40,13 @@ const reorderedData = computed(() => {
         slideShadows: false,
         perSlideRotate: 0,
       }"
-      class="w-full"
+      class="w-full cards"
     >
       <SwiperSlide v-for="(item, index) in reorderedData" :key="index">
-        <AspectRatio :ratio=" 1/1">
+        <AspectRatio :ratio="ratio">
           <div class="w-full h-full relative">
             <img
-              class="w-full h-full object-cover grayscale"
+              class="w-full h-full object-cover grayscale rounded-sm"
               :src="item"
               alt="room"
             />
@@ -52,7 +56,7 @@ const reorderedData = computed(() => {
     </Swiper>
   </div>
 </template>
-
+ 
 <style>
 .cards-wrapper .swiper-3d {
   z-index: 0 !important;

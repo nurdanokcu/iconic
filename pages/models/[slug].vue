@@ -1,11 +1,59 @@
 <script setup lang="ts">
+import { models } from "~/data/models";
+import type { TypeModel } from "~/types/models";
+import { pagePaths } from "~/config/paths";
+
 const route = useRoute();
-const modelSlug = ref(route.params.slug as string | "");
-definePageMeta({
-  middleware: "single-model",
+const router = useRouter();
+const modelSlug = route.params.slug as string;
+const currentModel = ref<TypeModel>({
+  id: 0,
+    name: "",
+    slug: "",
+    characteristics: [],
+    events: [],
+    featured_photo: "",
+    featured_project: null,
+    images: [],
+    is_promotional: false,
+    role: "",
+    cover_photo: "",
 });
-const { currentModel } = useSingleModel();
+  if (!modelSlug) {
+    router.push(pagePaths.models);
+  }
+
+  const findModel = (
+    models: TypeModel[],
+    slug: string
+  ): Promise<TypeModel | null> => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const model = models.find((model) => model.slug === slug);
+        if (!model) {
+          reject(new Error("Model not found"));
+        } else {
+          resolve(model);
+        }
+      }, 1000);
+    });
+  };
+
+  const fetchModel = async () => {
+    try {
+      const model = await findModel(models, modelSlug);
+      if (!model) {
+        router.push(pagePaths.models);
+        return;
+      }
+      currentModel.value = model;
+    } catch (error) {
+      router.push(pagePaths.models);
+    }
+  };
+ await fetchModel();
 </script>
+
 <template>
   <div class="mt-nav">
     <ModelsSingleHeader

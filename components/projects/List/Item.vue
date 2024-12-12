@@ -1,0 +1,54 @@
+<script setup lang="ts">
+import type { TypeProject } from "~/types/projects";
+import { pagePaths } from "~/config/paths";
+
+const props = defineProps({
+  project: {
+    type: Object as PropType<TypeProject>,
+    required: true,
+  },
+});
+const urlPath = computed(() => makeProjectPath(props.project.slug));
+const models = computed(() => props.project.featured_models.slice(0, 2));
+</script>
+
+<template>
+  <div
+    class="flex flex-col gap-8 items-center w-full md:grid md:grid-cols-2 md:gap-8 bg-surface-primary p-8 rounded-sm h-full"
+  >
+    <div class="relative w-full px-4">
+      <CommonSwiperCards class="h-full z-30" :data="project.featured_pictures" />
+      <IconsLongArrow
+        class="h-full absolute top-0 bottom-0 left-0 -translate-x-1/2"
+      />
+    </div>
+    <div class="flex flex-col gap-4 justify-between w-full">
+      <div class="flex flex-col gap-4">
+        <ProjectsListItemDetails 
+        :event="project.event"
+        :date="project.date"
+        :name="project.name"
+        :description="project.featured_description"
+        />
+        <ProjectsListItemModels
+          v-if="models.length"
+          :models="models"
+          :swiper-id="String(project.id)"
+        />
+      </div>
+      <NuxtLink class="w-fit ml-auto" :to="urlPath">
+        <Button
+          v-auto-animate
+          as="span"
+          text="Read more"
+          variant="secondary"
+          class="w-full"
+        >
+          <IconsAlignJustify />
+        </Button>
+      </NuxtLink>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>

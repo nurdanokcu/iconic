@@ -3,7 +3,7 @@
     <ModelsHeader />
     <main>
       <ModelsAll class="max-content-centered-lg" />
-      <ModelsDecor />
+      <IconsDecor02 class="mx-auto w-full" />
       <Contact class="py-16 max-content-centered-md" />
     </main>
   </div>
