@@ -1,5 +1,5 @@
 <script setup>
-import { footerLinks } from "@/utils/pagePaths";
+import { footerLinks } from "~/config/paths";
 </script>
 
 <template>

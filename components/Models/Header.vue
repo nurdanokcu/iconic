@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <header class="flex flex-col relative max-w-max-content-lg mx-auto">
+  <header class="flex flex-col relative max-w-page-width-xl mx-auto">
     <div
       class="ml-auto max-w-56 w-full -mb-8 z-10 sm:absolute sm:right-0 sm:m-0 md:max-w-96"
     >
@@ -32,8 +32,8 @@ defineProps({
         :height-classes="heightClasses"
       />
     </div>
-    <ModelsDecor
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20"
+    <IconsDecor02
+      class="w-full absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20"
     />
   </header>
 </template>

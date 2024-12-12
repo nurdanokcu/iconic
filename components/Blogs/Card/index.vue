@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TypeBlog } from "~/types/blogs";
 import { cn } from "@/lib/utils";
-import {pagePaths } from "~/utils/pagePaths";
+import { pagePaths } from "~/config/paths";
 const props = defineProps({
   blog: {
     type: Object as PropType<TypeBlog>,
@@ -42,7 +42,7 @@ const blogPath = (slug: string) => `${pagePaths.blogs}/${slug}`;
     >
       <img
         class="w-full h-full object-cover grayscale"
-        :src="blog.featuredPhoto"
+        :src="blog.featured_photo"
         :alt="blog.title"
       />
     </div>
@@ -62,10 +62,7 @@ const blogPath = (slug: string) => `${pagePaths.blogs}/${slug}`;
       "
     >
       <div v-dompurify-html="blog.content" class="text-sm line-clamp-[12]" />
-      <NuxtLink
-        class="w-fit ml-auto"
-        :to="blogPath(blog.slug)"
-      >
+      <NuxtLink class="w-fit ml-auto" :to="blogPath(blog.slug)">
         <Button
           as="span"
           text="Read More"

@@ -4,6 +4,7 @@ import { useForm } from "vee-validate";
 import * as z from "zod";
 import { useToast } from "~/components/ui/toast/use-toast";
 const { toast } = useToast();
+import { pagePaths } from "~/config/paths";
 
 const isLoading = ref(false);
 
@@ -12,6 +13,11 @@ const formSchema = toTypedSchema(
     username: z.string().min(2, "Name is too short"),
     email: z.string().email(),
     message: z.string().min(10, "Message is too short"),
+    terms: z
+      .boolean()
+      .refine((value) => value === true, {
+        message: "Please accept the terms and conditions",
+      }),
   })
 );
 
@@ -48,7 +54,7 @@ const onSubmit = handleSubmit(async (values) => {
     </h5>
     <FormField v-slot="{ componentField }" name="username">
       <FormItem v-auto-animate>
-        <FormLabel>Your Name</FormLabel>
+        <FormLabel class="uppercase">Your Name</FormLabel>
         <FormControl>
           <Input
             type="text"
@@ -61,7 +67,7 @@ const onSubmit = handleSubmit(async (values) => {
     </FormField>
     <FormField v-slot="{ componentField }" name="email">
       <FormItem v-auto-animate>
-        <FormLabel>Email</FormLabel>
+        <FormLabel class="uppercase">Email</FormLabel>
         <FormControl>
           <Input
             type="email"
@@ -74,14 +80,37 @@ const onSubmit = handleSubmit(async (values) => {
     </FormField>
     <FormField v-slot="{ componentField }" name="message">
       <FormItem v-auto-animate>
-        <FormLabel>Additional Message</FormLabel>
+        <FormLabel class="uppercase">Additional Message</FormLabel>
         <FormControl>
           <Textarea
             id="message"
             placeholder="Type your message here"
             v-bind="componentField"
+          ></Textarea>
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+    <FormField v-slot="{ componentField }" name="terms">
+      <FormItem v-auto-animate>
+        <FormControl>
+          <Checkbox
+            :checked="componentField.modelValue"
+            @update:checked="componentField.onChange"
           />
         </FormControl>
+        <FormLabel class="font-montserrat leading-none">
+          <span class="text-sm">
+            I agree with the
+            <NuxtLink
+              target="_blank"
+              :to="pagePaths.termsAndConditions"
+              class="text-primary underline"
+            >
+              terms and conditions
+            </NuxtLink>
+          </span>
+        </FormLabel>
         <FormMessage />
       </FormItem>
     </FormField>

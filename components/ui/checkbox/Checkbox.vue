@@ -20,11 +20,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   <CheckboxRoot
     v-bind="forwarded"
     :class="
-      cn('peer h-4 w-4 shrink-0 rounded-xs border border-button-background bg-button-background shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-button-background data-[state=checked]:border-button-background',
+      cn('peer h-4 w-4 shrink-0 rounded-xs border border-button-background bg-button-background shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-button-background data-[state=checked]:border-button-background relative',
          props.class,
       )"
   >
-    <CheckboxIndicator class="flex h-full w-full items-center justify-center text-current">
+    <CheckboxIndicator class="absolute inset-0 flex h-full w-full items-center justify-center text-current">
       <slot>
         <IconsCheckMark class="w-4 h-4" />
       </slot>

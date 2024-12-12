@@ -21,6 +21,7 @@
     "@vee-validate/zod": "^4.14.7",
     "@vite-pwa/nuxt": "^0.10.6",
     "@vueuse/core": "^12.0.0",
+    "@yeger/vue-masonry-wall": "^5.0.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "nuxt": "^3.14.1592",
@@ -34,7 +35,7 @@
     "vue": "latest",
     "vue-dompurify-html": "^5.2.0",
     "vue-router": "latest",
-    "zod": "^3.24.0"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2"

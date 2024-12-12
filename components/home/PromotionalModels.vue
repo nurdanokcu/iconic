@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { decor } from "~/assets/images";
-import { pagePaths } from "~/utils/pagePaths";
+import { pagePaths } from "~/config/paths";
 import { models, moreModels } from "~/data/models";
 const allModels = [...models, ...moreModels];
 const randomEightModels = allModels.sort(() => 0.5 - Math.random()).slice(0, 8);
@@ -41,24 +40,16 @@ const formPath = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
         >
           <AspectRatio :ratio="1 / 1" class="relative overflow-hidden">
             <img
-              :src="model.featuredPhoto"
+              :src="model.featured_photo"
               alt="Model"
-              class="object-cover w-full h-full object-top grayscale transform transition-transform duration-500 group-hover:scale-110"
+              class="object-cover w-full h-full object-top grayscale transform transition-transform duration-500 group-hover:scale-110 overflow-visible"
             />
           </AspectRatio>
           <p class="uppercase text-sm leading-tight">{{ model.name }}</p>
         </NuxtLink>
       </div>
     </div>
-    <img
-      class="w-full object-contain absolute top-0 -translate-y-1/2 max-w-xl left-1/2 -translate-x-1/2"
-      :src="decor"
-      alt="Decor"
-    />
-    <img
-      class="w-full object-contain absolute bottom-0 translate-y-1/2 max-w-xl left-1/2 -translate-x-1/2"
-      :src="decor"
-      alt="Decor"
-    />
+    <IconsDecor02 class="w-full absolute top-0 -translate-y-1/2 max-w-xl left-1/2 -translate-x-1/2" />
+    <IconsDecor02 class="w-full absolute bottom-0 translate-y-1/2 max-w-xl left-1/2 -translate-x-1/2" />
   </div>
 </template>

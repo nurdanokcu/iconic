@@ -23,7 +23,7 @@ const reorderedData = computed(() => {
 </script>
 
 <template>
-  <div class="flex w-full px-2 cards-wrapper">
+  <div class="flex w-full px-6 cards-wrapper">
     <Swiper
       effect="cards"
       :grab-cursor="true"

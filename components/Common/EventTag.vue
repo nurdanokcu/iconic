@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import type { TypeEvent } from "~/types/general";
+
 
 defineProps({
   variant: {
-    type: String as PropType<'outline' | 'solid'>,
-    default: 'outline',
+    type: String as PropType<"outline" | "solid">,
+    default: "outline",
   },
-  text: {
-    type: String,
-    required: false,
-  },
-  icon: {
-    type: String,
+  event: {
+    type: Object as PropType<TypeEvent>,
     required: true,
   },
   size: {
-    type: String as PropType<'md' | 'lg'>,
-    default: 'md',
+    type: String as PropType<"md" | "lg">,
+    default: "md",
   },
 });
 </script>
@@ -26,18 +24,19 @@ defineProps({
     :class="
       cn(
         'inline-flex items-center gap-2 rounded-md w-fit px-2 py-1 leading-normal transition-all',
-        variant === 'outline'
-          && 'border border-border-primary bg-surface-primary text-text-primary',
-        variant === 'solid'
-          && 'bg-surface-secondary border border-border-primary text-white ',
+        variant === 'outline' &&
+          'border border-border-primary bg-surface-primary text-text-primary',
+        variant === 'solid' &&
+          'bg-surface-secondary border border-border-primary text-white ',
         size === 'md' && 'text-sm leading-tight',
-        size === 'lg' && 'text-xl uppercase font-foglihten px-4 py-2 tracking-[1px] font-medium',
+        size === 'lg' &&
+          'text-xl uppercase font-foglihten px-4 py-2 tracking-[1px] font-medium'
       )
     "
   >
     <span
-      v-if="icon"
-      v-dompurify-html="icon"
+      v-if="event.icon"
+      v-dompurify-html="event.icon"
       :class="
         cn('w-6 h-6', {
           'icon-white': variant === 'solid',
@@ -45,9 +44,10 @@ defineProps({
         })
       "
     ></span>
-    <span v-if="text" :class="cn(size === 'lg' && 'pt-1')">
-      {{ text }}
+    <span v-if="event.name" :class="cn(size === 'lg' && 'pt-1')">
+      {{ event.name }}
     </span>
+    <slot></slot>
   </span>
 </template>
 

@@ -8,8 +8,11 @@ import type { TypeModel } from "~/types/models";
 const router = useRouter();
 const route = useRoute();
 const isLoading = ref(false);
+const loadingEvent = ref("");
 const allModels = ref([...models]);
 const loadMoreLink = ref("initialLink");
+const errorMessage = ref("");
+const filteredModels = ref<TypeModel[]>([...models]);
 
 const selectedEvent = ref<TypeEvent>({
   id: 0,
@@ -18,13 +21,21 @@ const selectedEvent = ref<TypeEvent>({
   value: "",
 });
 
-const filteredModels = computed(() => {
-  if (!selectedEvent.value.id) return allModels.value;
-  return allModels.value.filter((model) => {
-    const modelEvents = model.events.map((event) => event.id);
-    return modelEvents.includes(selectedEvent.value.id);
-  });
-});
+const filterModels = (event: TypeEvent) => {
+  loadingEvent.value = event.value;
+  setTimeout(() => {
+    if (!event.id) {
+      filteredModels.value = allModels.value;
+      loadingEvent.value = "";
+      return;
+    }
+    filteredModels.value = allModels.value.filter((model) => {
+      const modelEvents = model.events.map((event) => event.id);
+      return modelEvents.includes(event.id);
+    });
+    loadingEvent.value = "";
+  }, 500);
+};
 const isSelectedEvent = (eventId: number) => selectedEvent.value.id === eventId;
 const handleSelect = (event: TypeEvent) => {
   if (selectedEvent.value.id === event.id) {
@@ -44,7 +55,7 @@ const loadMore = () => {
   }, 1000);
 };
 const getLink = (model: TypeModel) => {
-  return `/models/${model.id}-${model.name.toLowerCase().replace(/ /g, "-")}`;
+  return `/models/${model.slug}`;
 };
 
 if (route.query.event) {
@@ -53,12 +64,15 @@ if (route.query.event) {
   );
   if (event) selectedEvent.value = event;
 }
+watch(selectedEvent, () => {
+  filterModels(selectedEvent.value);
+});
 </script>
 
 <template>
-  <div class="max-content-centered py-12 flex flex-col gap-8">
-    <div class="flex flex-col gap-4 lg:flex-row lg:justify-between sm:px-10">
-      <h1 class="text-stroke-md font-foglihten text-5xl">
+  <div class="py-12 flex flex-col gap-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:justify-between">
+      <h1 class="text-stroke-md font-foglihten text-5xl lg:min-w-72">
         Models for
       </h1>
       <div class="flex flex-wrap gap-2">
@@ -69,25 +83,34 @@ if (route.query.event) {
         >
           <CommonEventTag
             :variant="isSelectedEvent(event.id) ? 'solid' : 'outline'"
-            :text="event.name"
-            :icon="event.icon"
-          />
+            :event="event"
+          >
+            <IconsSpinner
+              v-if="loadingEvent === event.value"
+              class="animate-spin"
+            />
+          </CommonEventTag>
         </button>
       </div>
     </div>
+    <CommonNotification v-if="errorMessage" :message="errorMessage" />
     <div
       v-auto-animate
-      class="grid sm:grid-cols-2 sm:max-w-[900px] md:grid-cols-3 xl:grid-cols-4 xl:max-w-[1280px] w-full max-w-96 mx-auto"
+      class="grid max-w-96 sm:grid-cols-2 sm:max-w-page-width-sm md:grid-cols-3 xl:grid-cols-4 xl:max-content-centered-md w-full mx-auto"
     >
-      <NuxtLink
-        v-for="model in filteredModels"
-        :key="model.id"
-        :title="`Learn more about ${model.name}`"
-        :arial-label="`Learn more about ${model.name}`"
-        :to="getLink(model)"
-      >
-        <ModelsSingleCard :model="model" />
-      </NuxtLink>
+      <template v-if="filteredModels.length">
+        <NuxtLink
+          v-for="model in filteredModels"
+          :key="model.id"
+          :title="`Learn more about ${model.name}`"
+          :arial-label="`Learn more about ${model.name}`"
+          :to="getLink(model)"
+          :class="cn({ 'blur-[2px] opacity-90': loadingEvent })"
+        >
+          <div></div>
+          <ModelsCard :model="model" />
+        </NuxtLink>
+      </template>
     </div>
     <Button
       v-if="loadMoreLink"

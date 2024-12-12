@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import type { TypeModel } from '@/types/models';
 
-defineProps({
+const props = defineProps({
   model: {
     type: Object as PropType<TypeModel>,
     required: true,
   },
+});
+const adjustedEvents = computed(() => {
+  return props.model.events.map((event) => {
+    return {
+      id: event.id,
+      value: event.value,
+      icon: event.icon,
+    };
+  }).slice(0, 3);
 });
 </script>
 
@@ -16,16 +25,16 @@ defineProps({
         {{ model.name }}
       </p>
       <span class="flex flex-wrap gap-x-4 gap-y-2 text-sm leading-tight">
-        <span v-for="(detail, index) in model.features" :key="index">
+        <span v-for="(detail, index) in model.characteristics" :key="index">
           {{ detail }}
         </span>
       </span>
     </span>
     <span class="flex flex-col gap-1">
       <CommonEventTag
-        v-for="(event, index) in model.events"
+        v-for="(event, index) in adjustedEvents"
         :key="index"
-        :icon="event.icon"
+        :event="event" 
       />
     </span>
   </span>

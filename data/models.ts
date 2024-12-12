@@ -9,15 +9,20 @@ import {
   modelEight,
   modelNine,
   modelTen,
+  model,
+  modelCover,
 } from '~/assets/images';
 import type { TypeModel } from '~/types/models';
 import { events } from '~/data/events';
+import { singleProject } from '~/data/projects';
 
 export const singleModal: TypeModel = {
   id: 1,
   name: 'AISHWARYA gupta',
-  featuredPhoto: modelOne,
-  features: [
+  featured_photo: modelOne,
+  images: [model, model, model, model],
+  cover_photo: modelCover,
+  characteristics: [
     '5\'10"',
     'shoe 9',
     'size 2',
@@ -29,6 +34,8 @@ export const singleModal: TypeModel = {
   ],
   slug: 'aishwarya-gupta',
   role: 'Lead Model',
+  featured_project: singleProject,
+  is_promotional: false,
   events: [events[0], events[1], events[2]],
 };
 
@@ -40,7 +47,7 @@ export const models: TypeModel[] = [
     ...singleModal,
     id: 2,
     name: 'JESSICA',
-    featuredPhoto: modelTwo,
+    featured_photo: modelTwo,
     slug: 'jessica',
     role: 'Model',
     events: [events[0], events[1], events[3]],
@@ -51,7 +58,7 @@ export const models: TypeModel[] = [
     name: 'KATRINA',
     role: 'Model',
     slug: 'katrina',
-    featuredPhoto: modelThree,
+    featured_photo: modelThree,
     events: [events[1], events[2], events[3]],
   },
   {
@@ -60,7 +67,7 @@ export const models: TypeModel[] = [
     name: 'KAREENA',
     role: 'Model',
     slug: 'kareena',
-    featuredPhoto: modelFour,
+    featured_photo: modelFour,
     events: [events[0], events[3]],
   },
   {
@@ -68,7 +75,7 @@ export const models: TypeModel[] = [
     id: 5,
     name: 'LARA',
     slug: 'lara',
-    featuredPhoto: modelFive,
+    featured_photo: modelFive,
     events: [events[0], events[1]],
   },
   {
@@ -77,7 +84,7 @@ export const models: TypeModel[] = [
     name: 'EMILIA',
     role: 'Model',
     slug: 'emilia',
-    featuredPhoto: modelSix,
+    featured_photo: modelSix,
     events: [events[3]],
   },
 ];
@@ -87,7 +94,7 @@ export const moreModels: TypeModel[] = [
     id: 7,
     name: 'Ava Anderson',
     slug: 'ava-anderson',
-    featuredPhoto: modelSeven,
+    featured_photo: modelSeven,
     events: [events[0], events[1], events[2]],
   },
   {
@@ -96,7 +103,7 @@ export const moreModels: TypeModel[] = [
     name: 'Bella Carter',
     role: 'Model',
     slug: 'bella-carter',
-    featuredPhoto: modelEight,
+    featured_photo: modelEight,
     events: [events[3]],
   },
   {
@@ -105,7 +112,7 @@ export const moreModels: TypeModel[] = [
     name: 'Stella',
     role: 'Model',
     slug: 'stella',
-    featuredPhoto: modelNine,
+    featured_photo: modelNine,
     events: [events[1], events[2], events[3]],
   },
   {
@@ -114,7 +121,7 @@ export const moreModels: TypeModel[] = [
     name: 'Mia',
     slug: 'mia',
     role: 'Brand Ambassador',
-    featuredPhoto: modelTen,
+    featured_photo: modelTen,
     events: [events[0], events[3]],
   },
 ];

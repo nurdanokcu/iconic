@@ -1,12 +1,27 @@
 <script setup lang="ts">
-import { singleProject } from "~/data/projects";
-import { pagePaths } from "~/utils/pagePaths";
+import { pagePaths } from "~/config/paths";
+import type { TypeProject } from "~/types/projects";
+
+const props = defineProps({
+  project: {
+    type: Object as PropType<TypeProject>,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  isEventVisible: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const isIconVisible = ref(true);
 const urlPath = computed(() => {
-  return `${pagePaths.projects}/${singleProject.slug}`;
+  return `${pagePaths.projects}/${props.project.slug}`;
 });
-const models = computed(() => singleProject.featuredModels.slice(0, 2));
+const models = computed(() => props.project.featured_models.slice(0, 2));
 const formModelUrl = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
 </script>
 
@@ -14,18 +29,18 @@ const formModelUrl = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
   <div
     class="flex flex-col gap-16 items-center w-full lg:grid lg:grid-cols-2 lg:gap-16"
   >
-    <CommonSwiperCards :data="singleProject.pictures" />
+    <CommonSwiperCards :data="project.featured_pictures" />
     <div class="flex flex-col gap-4 w-full">
-      <div class="flex gap-4">
+      <div class="flex gap-4 justify-between">
         <h2
           class="font-foglihten text-4xl text-surface-secondary font-medium sm:text-5xl"
         >
-          Featured Project
+          {{ title }}
         </h2>
         <CommonEventTag
+          v-if="isEventVisible"
           class="h-fit"
-          :text="singleProject.event.name"
-          :icon="singleProject.event.icon"
+          :event="project.event"
         />
       </div>
       <NuxtLink
@@ -37,7 +52,7 @@ const formModelUrl = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
         <Button
           v-auto-animate
           as="span"
-          :text="singleProject.name"
+          :text="project.name"
           variant="secondary"
           class="w-full flex-row-reverse"
         >
@@ -45,17 +60,17 @@ const formModelUrl = (modelUrl: string) => `${pagePaths.models}/${modelUrl}`;
         </Button>
       </NuxtLink>
       <p class="text-sm leading-tight line-clamp-4">
-        {{ singleProject.description }}
+        {{ project.description }}
       </p>
       <div class="flex flex-col gap-4">
         <NuxtLink
-          :to="formModelUrl(model.slug)"
           v-for="model in models"
+          :to="formModelUrl(model.slug)"
           :key="model.id"
         >
           <ProjectsModelCard
             :name="model.name"
-            :image="model.featuredPhoto"
+            :image="model.featured_photo"
             :role="model.role"
           />
         </NuxtLink>

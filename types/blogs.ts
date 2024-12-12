@@ -1,15 +1,30 @@
 import type { TypeEvent } from '~/types/general';
 
+export interface TypeNextBlog {
+    id: number;
+    title: string;
+    slug: string;
+    excerpt: string;
+    author: {
+      id: number;
+      name: string;
+    };
+    event: TypeEvent;
+    featured_photo?: string;
+  }
 export interface TypeBlog {
   id: number;
   title: string;
-  featuredPhoto?: string;
+  featured_photo?: string;
+  excerpt: string;
   content: string;
-  isFeatured: boolean;
+  is_featured: boolean;
   slug: string;
   author: {
     id: number;
     name: string;
   };
   event: TypeEvent;
+  next_blog: TypeNextBlog | null;
 }
+

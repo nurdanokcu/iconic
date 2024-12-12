@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { pagePaths } from "~/utils/pagePaths";
+import { pagePaths } from "~/config/paths";
 const userIcon = resolveComponent("IconsUser");
 const announcement = resolveComponent("IconsAnnouncement");
 const alignJustify = resolveComponent("IconsAlignJustify");

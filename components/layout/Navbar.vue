@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
-import { menuLinks } from "~/utils/pagePaths";
+import { menuLinks } from "~/config/paths";
 
 const isOpen = ref(false);
 const toggle = () => {
@@ -16,7 +16,7 @@ const close = () => {
     class="bg-surface-primary w-full border-b border-surface-secondary h-nav"
   >
     <nav
-      class="max-content-centered py-6 flex items-center justify-between w-full"
+      class="max-content-centered-lg py-6 flex items-center justify-between w-full"
     >
       <NuxtLink to="/" class="flex items-center gap-8">
         <IconsLogoCombined color="var(--black)" class="h-auto" />

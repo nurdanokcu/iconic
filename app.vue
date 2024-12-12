@@ -20,6 +20,7 @@ useHead({
 
 <template>
   <NuxtLayout>
+    <NuxtLoadingIndicator color="var(--gold-700)" :height="4" />
     <NuxtRouteAnnouncer />
     <NuxtPage />
   </NuxtLayout>

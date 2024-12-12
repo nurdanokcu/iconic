@@ -16,13 +16,18 @@ defineProps({
 </script>
 
 <template>
-  <span class="flex gap-1 items-center">
+  <span class="flex gap-2 items-center">
     <span class="w-16 h-16 rounded-sm overflow-hidden">
       <img
+        v-if="image"
         :src="image"
         alt="Model Image"
         class="object-cover w-full h-full rounded-sm overflow-visible grayscale"
       />
+      <span
+        v-else
+        class="w-full h-full bg-gray-200 flex"
+      ></span>
     </span>
     <span class="flex flex-col gap-1">
       <span class="text-sm leading-tight">{{ name }}</span>

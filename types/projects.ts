@@ -1,13 +1,21 @@
-import type { TypeEvent } from '~/types/general';
-import type { TypeModel } from '~/types/models';
+import type { TypeEvent } from "~/types/general";
 
 export interface TypeProject {
   id: number;
   name: string;
   date: string;
-  description: string;
+  featured_description: string;
+  featured_pictures: string[];
   pictures: string[];
+  description: string;
   event: TypeEvent;
-  featuredModels: TypeModel[];
+  featured_models: {
+    id: number;
+    name: string;
+    role: string;
+    featured_photo: string;
+    slug: string;
+  }[];
   slug: string;
+  next_project_slug: string | null;
 }

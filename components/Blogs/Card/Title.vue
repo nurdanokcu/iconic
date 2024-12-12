@@ -57,8 +57,7 @@ defineProps({
       v-if="event && layout === 'horizontal'"
       class="w-fit"
       variant="outline"
-      :icon="event.icon"
-      :text="event.name"
+      :event="event"
     />
   </div>
 </template>

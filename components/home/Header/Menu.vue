@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { menuLinks } from "~/utils/pagePaths";
+import { menuLinks } from "~/config/paths";
 </script>
 <template>
   <div class="flex flex-col gap-6 justify-center relative">
