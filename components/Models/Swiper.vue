@@ -1,25 +1,21 @@
 <script setup lang="ts">
-import {
-  slider01,
-  slider02,
-  slider03,
-  slider04,
-  slider05,
-} from "~/assets/images";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
-const images = [slider01, slider02, slider03, slider04, slider05];
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 defineProps({
   paginationAlign: {
     type: String,
-    default: "left",
+    default: 'left',
   },
   heightClasses: {
     type: String,
-    default: "h-[500px] 2xl:h-[600px]",
+    default: 'h-[500px] 2xl:h-[600px]',
+  },
+  images: {
+    type: Array as PropType<string[]>,
+    required: true,
   },
 });
 </script>

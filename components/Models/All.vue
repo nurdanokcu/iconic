@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import { models, moreModels } from "~/data/models";
-import { events } from "~/data/events";
-import type { TypeEvent } from "~/types/general";
-import { cn } from "~/lib/utils";
-import type { TypeModel } from "~/types/models";
+import { models, moreModels } from '~/data/models';
+import type { TypeEvent } from '~/types/general';
+import { cn } from '~/lib/utils';
+import type { TypeModel } from '~/types/models';
 
 const router = useRouter();
-const route = useRoute();
 const isLoading = ref(false);
-const loadingEvent = ref("");
+const loadingEvent = ref('');
 const allModels = ref([...models]);
-const loadMoreLink = ref("initialLink");
-const errorMessage = ref("");
+const loadMoreLink = ref('initialLink');
+const errorMessage = ref('');
 const filteredModels = ref<TypeModel[]>([...models]);
 
 const selectedEvent = ref<TypeEvent>({
   id: 0,
-  name: "",
-  icon: "",
-  value: "",
+  name: '',
+  icon: '',
+  value: '',
 });
 
 const filterModels = (event: TypeEvent) => {
@@ -26,20 +24,20 @@ const filterModels = (event: TypeEvent) => {
   setTimeout(() => {
     if (!event.id) {
       filteredModels.value = allModels.value;
-      loadingEvent.value = "";
+      loadingEvent.value = '';
       return;
     }
     filteredModels.value = allModels.value.filter((model) => {
-      const modelEvents = model.events.map((event) => event.id);
+      const modelEvents = model.events.map(event => event.id);
       return modelEvents.includes(event.id);
     });
-    loadingEvent.value = "";
+    loadingEvent.value = '';
   }, 500);
 };
-const isSelectedEvent = (eventId: number) => selectedEvent.value.id === eventId;
+
 const handleSelect = (event: TypeEvent) => {
   if (selectedEvent.value.id === event.id) {
-    selectedEvent.value = { id: 0, name: "", icon: "", value: "" };
+    selectedEvent.value = { id: 0, name: '', icon: '', value: '' };
     return router.push({ query: {} });
   }
   selectedEvent.value = event;
@@ -51,19 +49,11 @@ const loadMore = () => {
   setTimeout(() => {
     isLoading.value = false;
     allModels.value = [...allModels.value, ...moreModels];
-    loadMoreLink.value = "";
+    loadMoreLink.value = '';
+    filterModels(selectedEvent.value);
   }, 1000);
 };
-const getLink = (model: TypeModel) => {
-  return `/models/${model.slug}`;
-};
 
-if (route.query.event) {
-  const event = events.find(
-    (event) => event.value === String(route.query.event)
-  );
-  if (event) selectedEvent.value = event;
-}
 watch(selectedEvent, () => {
   filterModels(selectedEvent.value);
 });
@@ -75,23 +65,11 @@ watch(selectedEvent, () => {
       <h1 class="text-stroke-md font-foglihten text-5xl lg:min-w-72">
         Models for
       </h1>
-      <div class="flex flex-wrap gap-2">
-        <button
-          v-for="event in events"
-          :key="event.id"
-          @click="handleSelect(event)"
-        >
-          <CommonEventTag
-            :variant="isSelectedEvent(event.id) ? 'solid' : 'outline'"
-            :event="event"
-          >
-            <IconsSpinner
-              v-if="loadingEvent === event.value"
-              class="animate-spin"
-            />
-          </CommonEventTag>
-        </button>
-      </div>
+      <CommonEventsFilter
+        :loading-event="loadingEvent"
+        :selected-event="selectedEvent"
+        @on-select="handleSelect"
+      />
     </div>
     <CommonNotification v-if="errorMessage" :message="errorMessage" />
     <div
@@ -104,10 +82,9 @@ watch(selectedEvent, () => {
           :key="model.id"
           :title="`Learn more about ${model.name}`"
           :arial-label="`Learn more about ${model.name}`"
-          :to="getLink(model)"
+          :to="makeModelPath(model.slug)"
           :class="cn({ 'blur-[2px] opacity-90': loadingEvent })"
         >
-          <div></div>
           <ModelsCard :model="model" />
         </NuxtLink>
       </template>

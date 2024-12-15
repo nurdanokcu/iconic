@@ -1,4 +1,4 @@
-import { pagePaths } from "~/config/paths";
+import { pagePaths } from '~/config/paths';
 
 export const makeModelPath = (slug: string) => `${pagePaths.models}/${slug}`;
 export const makeProjectPath = (slug: string) => `${pagePaths.projects}/${slug}`;

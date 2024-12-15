@@ -14,8 +14,7 @@ export default withNuxt(
       '@stylistic/brace-style': ['error', '1tbs'],
       '@typescript-eslint/no-explicit-any': ['off'],
       'vue/html-self-closing': 'off',
-      'stylistic/quoting': ['error', 'single'],
-      "@stylistic/quotes": ["error", "single"],
+      '@stylistic/quotes': ['error', 'single'],
     },
   },
 );

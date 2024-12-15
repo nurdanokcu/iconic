@@ -1,5 +1,5 @@
 @tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
 :root {
@@ -37,10 +37,11 @@
   /* Spacing */
   --nav-height: 96px;
   --page-width-sm: 1000px;
-  --page-width-md: 1480px;
+  --page-width-md: 1400px;
   --page-width-lg: 1800px;
   --page-width-xl: 2400px;
-  --screen-height: calc(100vh - var(--nav-height) - 32px);
+  --screen-height: calc(100vh - var(--nav-height));
+  --screen-height-sm: calc(100vh - var(--nav-height) - 32px);
 }
 @layer base {
   :root {

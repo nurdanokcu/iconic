@@ -1,3 +1,4 @@
+import { projects } from './projects';
 import {
   modelOne,
   modelTwo,
@@ -11,6 +12,10 @@ import {
   modelTen,
   model,
   modelCover,
+  random01,
+  random02,
+  random03,
+  random04,
 } from '~/assets/images';
 import type { TypeModel } from '~/types/models';
 import { events } from '~/data/events';
@@ -20,7 +25,7 @@ export const singleModal: TypeModel = {
   id: 1,
   name: 'AISHWARYA gupta',
   featured_photo: modelOne,
-  images: [model, model, model, model],
+  images: [model, random01, random02, random03],
   cover_photo: modelCover,
   characteristics: [
     '5\'10"',
@@ -51,6 +56,9 @@ export const models: TypeModel[] = [
     slug: 'jessica',
     role: 'Model',
     events: [events[0], events[1], events[3]],
+    cover_photo: random04,
+    featured_project: projects[1],
+    images: [random04, model, random03, random01],
   },
   {
     ...singleModal,
@@ -60,6 +68,9 @@ export const models: TypeModel[] = [
     slug: 'katrina',
     featured_photo: modelThree,
     events: [events[1], events[2], events[3]],
+    cover_photo: random04,
+    featured_project: projects[2],
+    images: [random02, random01, model, random03],
   },
   {
     ...singleModal,
@@ -69,6 +80,9 @@ export const models: TypeModel[] = [
     slug: 'kareena',
     featured_photo: modelFour,
     events: [events[0], events[3]],
+    cover_photo: random04,
+    featured_project: projects[3],
+    images: [random01, model, random04, random03],
   },
   {
     ...singleModal,
@@ -77,6 +91,9 @@ export const models: TypeModel[] = [
     slug: 'lara',
     featured_photo: modelFive,
     events: [events[0], events[1]],
+    cover_photo: random01,
+    featured_project: projects[4],
+    images: [random03, random01, model, random02],
   },
   {
     ...singleModal,
@@ -86,6 +103,9 @@ export const models: TypeModel[] = [
     slug: 'emilia',
     featured_photo: modelSix,
     events: [events[3]],
+    cover_photo: random04,
+    featured_project: projects[5],
+    images: [random02, random01, model, random03],
   },
 ];
 export const moreModels: TypeModel[] = [
@@ -96,6 +116,9 @@ export const moreModels: TypeModel[] = [
     slug: 'ava-anderson',
     featured_photo: modelSeven,
     events: [events[0], events[1], events[2]],
+    cover_photo: random02,
+    featured_project: projects[3],
+    images: [random01, model, random03, random02],
   },
   {
     ...singleModal,
@@ -104,7 +127,23 @@ export const moreModels: TypeModel[] = [
     role: 'Model',
     slug: 'bella-carter',
     featured_photo: modelEight,
-    events: [events[3]],
+    events: [
+      events[3],
+      events[2],
+      events[1],
+      events[0],
+      events[3],
+      events[2],
+      events[3],
+      events[2],
+      events[1],
+      events[0],
+      events[3],
+      events[2],
+    ],
+    cover_photo: random02,
+    featured_project: projects[4],
+    images: [random03, random01, model, random02],
   },
   {
     ...singleModal,
@@ -114,6 +153,9 @@ export const moreModels: TypeModel[] = [
     slug: 'stella',
     featured_photo: modelNine,
     events: [events[1], events[2], events[3]],
+    cover_photo: modelCover,
+    featured_project: projects[5],
+    images: [random02, random01, model, random03],
   },
   {
     ...singleModal,
@@ -123,5 +165,8 @@ export const moreModels: TypeModel[] = [
     role: 'Brand Ambassador',
     featured_photo: modelTen,
     events: [events[0], events[3]],
+    cover_photo: random01,
+    featured_project: projects[0],
+    images: [random01, model, random04, random03],
   },
 ];

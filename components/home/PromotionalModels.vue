@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { pagePaths } from "~/config/paths";
-import { models, moreModels } from "~/data/models";
+import { pagePaths } from '~/config/paths';
+import { models, moreModels } from '~/data/models';
+
 const allModels = [...models, ...moreModels];
-const randomEightModels = allModels.sort(() => 0.5 - Math.random()).slice(0, 8);
+const randomEightModels = allModels.slice(0, 8);
 </script>
 
 <template>
@@ -10,8 +11,12 @@ const randomEightModels = allModels.sort(() => 0.5 - Math.random()).slice(0, 8);
     class="relative flex flex-col gap-16 items-center w-full text-white lg:grid lg:grid-cols-2 lg:gap-16"
   >
     <div class="flex flex-col gap-2">
-      <h3 class="font-foglihten text-5xl leading-snug">Promotional Models:</h3>
-      <p class="text-2xl font-extrabold">The Face of Your Brand</p>
+      <h3 class="font-foglihten text-5xl leading-snug">
+        Promotional Models:
+      </h3>
+      <p class="text-2xl font-extrabold">
+        The Face of Your Brand
+      </p>
       <p class="text-sm leading-tight">
         Iconic is a new modeling agency in Germany, but we are already making
         waves. We represent some of the most promising new models in the
@@ -26,7 +31,11 @@ const randomEightModels = allModels.sort(() => 0.5 - Math.random()).slice(0, 8);
     </div>
     <div class="flex flex-col gap-4 w-full">
       <NuxtLink :to="pagePaths.models" class="ml-auto">
-        <Button as="span" text="Browse By Event" class="w-full">
+        <Button
+          as="span"
+          text="Browse By Event"
+          class="w-full"
+        >
           <IconsSearch />
         </Button>
       </NuxtLink>

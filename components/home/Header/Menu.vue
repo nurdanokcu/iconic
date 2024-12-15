@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { menuLinks } from "~/config/paths";
+import { menuLinks } from '~/config/paths';
 </script>
+
 <template>
   <div class="flex flex-col gap-6 justify-center relative">
     <h1 class="flex flex-col gap-2 md:items-end lg:items-start">

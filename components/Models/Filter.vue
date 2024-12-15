@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { events } from "~/data/events";
+import { events } from '~/data/events';
 
 const selectedEvents = ref<string[]>([]);
 </script>

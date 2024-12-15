@@ -34,7 +34,7 @@ const adjustedEvents = computed(() => {
       <CommonEventTag
         v-for="(event, index) in adjustedEvents"
         :key="index"
-        :event="event" 
+        :event="event"
       />
     </span>
   </span>

@@ -27,7 +27,7 @@ function getGroupSizes(imagesLength: number): number[] {
     case 2:
       return [...Array(fullGroupsCount).fill(4), 4, 4];
     case 3:
-      return [5, ...Array(fullGroupsCount+1).fill(4)];
+      return [5, ...Array(fullGroupsCount + 1).fill(4)];
     default:
       return [];
   }
@@ -49,41 +49,41 @@ function getImageGrouping(images: string[]): string[][] {
 function getParentClassForLineSize(size: number): string {
   switch (size) {
     case 2:
-      return "flex flex-col md:grid md:grid-cols-2";
+      return 'flex flex-col md:grid md:grid-cols-2';
     case 3:
-      return "flex flex-col md:grid md:grid-cols-2";
+      return 'flex flex-col md:grid md:grid-cols-2';
     case 4:
-      return "flex flex-col md:grid md:grid-cols-3";
+      return 'flex flex-col md:grid md:grid-cols-3';
     case 5:
-      return "flex flex-col md:grid md:grid-cols-3";
+      return 'flex flex-col md:grid md:grid-cols-3';
     default:
-      return "flex flex-col";
+      return 'flex flex-col';
   }
 }
 
 function getImageClassesForLineSize(size: number): string[] {
   switch (size) {
     case 2:
-      return ["col-span-1", "col-span-1"];
+      return ['col-span-1', 'col-span-1'];
     case 3:
-      return ["col-span-1 row-span-2", "col-span-1 row-span-1", "col-span-1 row-span-1"];
+      return ['col-span-1 row-span-2', 'col-span-1 row-span-1', 'col-span-1 row-span-1'];
     case 4:
       return [
-        "col-span-1 row-span-2",
-        "col-span-2 row-span-1",
-        "col-span-1 row-span-1",
-        "col-span-1 row-span-1",
+        'col-span-1 row-span-2',
+        'col-span-2 row-span-1',
+        'col-span-1 row-span-1',
+        'col-span-1 row-span-1',
       ];
     case 5:
       return [
-        "col-span-1 row-span-2",
-        "col-span-1 row-span-1",
-        "col-span-1 row-span-1",
-        "col-span-1 row-span-1",
-        "col-span-1 row-span-1",
+        'col-span-1 row-span-2',
+        'col-span-1 row-span-1',
+        'col-span-1 row-span-1',
+        'col-span-1 row-span-1',
+        'col-span-1 row-span-1',
       ];
     default:
-      return Array(size).fill("col-span-1 row-span-1");
+      return Array(size).fill('col-span-1 row-span-1');
   }
 }
 
@@ -101,7 +101,7 @@ function getLayoutForImages(images: string[]) {
   return {
     grouped,
     parent,
-    child
+    child,
   };
 }
 

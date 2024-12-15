@@ -4,7 +4,9 @@
       class="max-content-centered-md min-h-screen-height flex flex-col py-16"
     >
       <div class="flex flex-col gap-6 text-sm md:flex-row md:gap-8">
-        <h1 class="font-foglihten text-4xl sm:text-6xl uppercase">Impressum</h1>
+        <h1 class="font-foglihten text-4xl sm:text-6xl uppercase">
+          Impressum
+        </h1>
         <div class="flex flex-col gap-6">
           <NuxtLink
             to="https://www.google.com/maps"
@@ -22,7 +24,9 @@
           </NuxtLink>
 
           <div>
-            <p class="font-bold">Contact Details</p>
+            <p class="font-bold">
+              Contact Details
+            </p>
             <NuxtLink
               to="mailto:info@iconic.com"
               aria-label="Send us an email"
@@ -44,7 +48,9 @@
           </div>
 
           <div>
-            <p class="font-bold">Legal Information</p>
+            <p class="font-bold">
+              Legal Information
+            </p>
             <p>
               <strong>Owner/Managing Director:</strong> John Doe
             </p>
@@ -60,7 +66,9 @@
           </div>
 
           <div>
-            <p class="font-bold">Disclaimer</p>
+            <p class="font-bold">
+              Disclaimer
+            </p>
             <p>
               Despite careful monitoring of content, Iconic Modeling Agency
               assumes no liability for the content of external links. The
@@ -70,7 +78,9 @@
           </div>
 
           <div>
-            <p class="font-bold">Copyright</p>
+            <p class="font-bold">
+              Copyright
+            </p>
             <p>
               All content, images, and designs on this website are protected by
               copyright. Use without prior written consent from Iconic Modeling

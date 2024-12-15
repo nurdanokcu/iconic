@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { image01, image02 } from "~/assets/images";
-import { singleModal } from "~/data/models";
+import { image01, image02 } from '~/assets/images';
+import { singleModal } from '~/data/models';
 </script>
+
 <template>
   <div class="flex items-center w-full">
     <div

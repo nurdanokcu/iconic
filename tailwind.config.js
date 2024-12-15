@@ -1,4 +1,5 @@
 const animate = require('tailwindcss-animate');
+const typography = require('@tailwindcss/typography');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
@@ -130,6 +131,7 @@ module.exports = {
         'page-width-lg': 'var(--page-width-lg)',
         'page-width-xl': 'var(--page-width-xl)',
         'screen-height': 'var(--screen-height)',
+        'screen-height-sm': 'var(--screen-height-sm)',
       },
       keyframes: {
         'accordion-down': {
@@ -148,9 +150,9 @@ module.exports = {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: 0 },
         },
-        appear: {
-          '0%': { transform: 'scale3d(1.1, 1.1, 1)', 'backface-visibility': 'hidden' },
-          '100%': { transform: 'scale3d(1, 1, 1)', 'backface-visibility': 'hidden' },
+        'appear': {
+          '0%': { 'transform': 'scale3d(1.1, 1.1, 1)', 'backface-visibility': 'hidden' },
+          '100%': { 'transform': 'scale3d(1, 1, 1)', 'backface-visibility': 'hidden' },
         },
       },
       animation: {
@@ -167,5 +169,5 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, typography],
 };

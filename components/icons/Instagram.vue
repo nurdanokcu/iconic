@@ -38,7 +38,11 @@
       >
         <stop stop-color="#3771C8" />
         <stop offset="0.128" stop-color="#3771C8" />
-        <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#6600FF"
+          stop-opacity="0"
+        />
       </radialGradient>
     </defs>
   </svg>

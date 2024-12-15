@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { audi, bmw, ilm, interTabac } from "~/assets/images/clients";
+import { audi, bmw, ilm, interTabac } from '~/assets/images/clients';
+
 const clients = [audi, interTabac, ilm, bmw];
 </script>
+
 <template>
   <div class="border-b-2">
     <h2 class="font-foglihten text-4xl font-medium leading-normal sm:text-5xl">

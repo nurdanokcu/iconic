@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TypeModel } from "@/types/models";
+import type { TypeModel } from '@/types/models';
 
 defineProps({
   model: {

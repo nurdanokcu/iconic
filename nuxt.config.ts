@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@formkit/auto-animate/nuxt',
-    'nuxt-viewport'
+    'nuxt-viewport',
   ],
   devtools: { enabled: true },
   app: {
@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       link: [
+        { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
         { rel: 'icon', href: '/icon-light.png', type: 'image/png', media: '(prefers-color-scheme: dark)' },
         { rel: 'icon', href: '/icon-dark.png', type: 'image/png', media: '(prefers-color-scheme: light)' },
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192x192.png' },

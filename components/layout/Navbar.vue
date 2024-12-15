@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
-import { menuLinks } from "~/config/paths";
+import { cn } from '@/lib/utils';
+import { menuLinks } from '~/config/paths';
+
+const { isLockScreenVisible, disableScroll } = useLockScreen();
 
 const isOpen = ref(false);
 const toggle = () => {
@@ -8,6 +10,12 @@ const toggle = () => {
 };
 const close = () => {
   isOpen.value = false;
+};
+const handleClick = () => {
+  close();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  isLockScreenVisible.value = true;
+  disableScroll();
 };
 </script>
 
@@ -18,7 +26,11 @@ const close = () => {
     <nav
       class="max-content-centered-lg py-6 flex items-center justify-between w-full"
     >
-      <NuxtLink to="/" class="flex items-center gap-8">
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-8"
+        @click="handleClick"
+      >
         <IconsLogoCombined color="var(--black)" class="h-auto" />
       </NuxtLink>
       <div class="hidden md:flex gap-4 items-center">
@@ -28,7 +40,11 @@ const close = () => {
           :to="link.to"
           active-class="text-stroke-lg"
         >
-          <Button :text="link.text" @click="close" variant="secondary" />
+          <Button
+            :text="link.text"
+            variant="secondary"
+            @click="close"
+          />
         </NuxtLink>
       </div>
       <LayoutMenuButton
@@ -42,7 +58,7 @@ const close = () => {
             'md:hidden fixed top-nav right-0 translate-x-full h-full overflow-x-hidden duration-500 z-10 bg-white w-full',
             {
               'translate-x-0': isOpen,
-            }
+            },
           )
         "
       >
@@ -53,7 +69,11 @@ const close = () => {
             :to="link.to"
             active-class="text-stroke-lg"
           >
-            <Button :text="link.text" @click="close" variant="secondary" />
+            <Button
+              :text="link.text"
+              variant="secondary"
+              @click="close"
+            />
           </NuxtLink>
         </div>
       </div>

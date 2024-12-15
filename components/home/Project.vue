@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { singleProject } from "~/data/projects";
+import { singleProject } from '~/data/projects';
 </script>
 
 <template>
   <CommonFeaturedProject
     :project="singleProject"
-    :isEventVisible="true"
+    :is-event-visible="true"
     title="Featured Project"
   />
 </template>

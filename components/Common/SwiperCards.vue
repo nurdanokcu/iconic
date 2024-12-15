@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/effect-cards";
-import { EffectCards, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import { EffectCards } from 'swiper/modules';
 
 const props = defineProps({
   data: {
@@ -31,7 +31,7 @@ const reorderedData = computed(() => {
     <Swiper
       effect="cards"
       :grab-cursor="true"
-      :modules="[EffectCards, Autoplay]"
+      :modules="[EffectCards]"
       :slide-to-clicked-slide="true"
       :loop="true"
       :initial-slide="1"
@@ -56,7 +56,7 @@ const reorderedData = computed(() => {
     </Swiper>
   </div>
 </template>
- 
+
 <style>
 .cards-wrapper .swiper-3d {
   z-index: 0 !important;

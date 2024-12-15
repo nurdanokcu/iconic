@@ -1,4 +1,5 @@
-import type { TypeEvent } from "~/types/general";
+import type { TypeEvent } from '~/types/general';
+
 export interface TypeModelSummary {
   id: number;
   name: string;

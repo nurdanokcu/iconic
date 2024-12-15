@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
 const props = defineProps({
   images: {
@@ -15,139 +15,139 @@ const ratio = ref(3 / 1);
 
 if (props.images.length === 2) {
   groupedImages.value = [props.images];
-  parentClasses.value = ["flex flex-col md:grid md:grid-cols-2"];
-  imageClasses.value = [["col-span-1", "col-span-1"]];
+  parentClasses.value = ['flex flex-col md:grid md:grid-cols-2'];
+  imageClasses.value = [['col-span-1', 'col-span-1']];
 }
 if (props.images.length === 3) {
   groupedImages.value = [props.images];
-  parentClasses.value = ["flex flex-col md:grid md:grid-cols-2"];
+  parentClasses.value = ['flex flex-col md:grid md:grid-cols-2'];
   imageClasses.value = [
-    ["col-span-1 row-span-2", "col-span-1 row-span-1", "col-span-1 row-span-1"],
+    ['col-span-1 row-span-2', 'col-span-1 row-span-1', 'col-span-1 row-span-1'],
   ];
 }
 if (props.images.length === 4) {
   groupedImages.value = [props.images];
-  parentClasses.value = ["flex flex-col md:grid md:grid-cols-3"];
+  parentClasses.value = ['flex flex-col md:grid md:grid-cols-3'];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
   ];
 }
 if (props.images.length === 5) {
   groupedImages.value = [props.images];
-  parentClasses.value = ["flex flex-col md:grid md:grid-cols-3"];
+  parentClasses.value = ['flex flex-col md:grid md:grid-cols-3'];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
   ];
 }
 if (props.images.length === 6) {
   groupedImages.value = [props.images.slice(0, 4), props.images.slice(-2)];
   parentClasses.value = [
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-2",
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-2',
   ];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
-    ["col-span-1", "col-span-1"],
+    ['col-span-1', 'col-span-1'],
   ];
 }
 if (props.images.length === 7) {
   groupedImages.value = [props.images.slice(0, 4), props.images.slice(-3)];
   parentClasses.value = [
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-2",
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-2',
   ];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
-    ["col-span-1 row-span-2", "col-span-1 row-span-1", "col-span-1 row-span-1"],
+    ['col-span-1 row-span-2', 'col-span-1 row-span-1', 'col-span-1 row-span-1'],
   ];
 }
 if (props.images.length === 8) {
   groupedImages.value = [props.images.slice(0, 4), props.images.slice(-4)];
   parentClasses.value = [
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-3",
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-3',
   ];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
   ];
 }
 if (props.images.length === 9) {
   groupedImages.value = [props.images.slice(0, 5), props.images.slice(-4)];
   parentClasses.value = [
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-3",
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-3',
   ];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
   ];
 }
 if (props.images.length === 10) {
-  groupedImages.value = [props.images.slice(0, 4), props.images.slice(5,9), props.images.slice(-2)];
+  groupedImages.value = [props.images.slice(0, 4), props.images.slice(5, 9), props.images.slice(-2)];
   parentClasses.value = [
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-3",
-    "flex flex-col md:grid md:grid-cols-2",
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-3',
+    'flex flex-col md:grid md:grid-cols-2',
   ];
   imageClasses.value = [
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
     [
-      "col-span-1 row-span-2",
-      "col-span-2 row-span-1",
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
     [
-      "col-span-1 row-span-1",
-      "col-span-1 row-span-1",
+      'col-span-1 row-span-1',
+      'col-span-1 row-span-1',
     ],
   ];
 }

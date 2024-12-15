@@ -13,7 +13,11 @@
       to="#clients"
       class="flex w-fit mx-auto"
     >
-      <Button as="span" variant="tertiary" text="Scroll for more">
+      <Button
+        as="span"
+        variant="tertiary"
+        text="Scroll for more"
+      >
         <IconsChevronDown />
       </Button>
     </NuxtLink>

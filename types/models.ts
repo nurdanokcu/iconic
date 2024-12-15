@@ -1,5 +1,5 @@
-import type { TypeEvent } from '~/types/general';
 import type { TypeProject } from './projects';
+import type { TypeEvent } from '~/types/general';
 
 export interface TypeModel {
   id: number;

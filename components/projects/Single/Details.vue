@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import type { TypeProject } from "~/types/projects";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
+import type { TypeProject } from '~/types/projects';
+
 const { $viewport } = useNuxtApp();
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper/modules";
 
 const props = defineProps({
   project: {
@@ -12,11 +13,18 @@ const props = defineProps({
     required: true,
   },
 });
-const finalPictures = computed(() => [
-  ...props.project.pictures,
-  ...props.project.pictures,
-]);
+const finalPictures = computed(() => {
+  if (props.project.featured_pictures.length < 3) {
+    return [
+      ...props.project.featured_pictures,
+      ...props.project.featured_pictures,
+    ];
+  } else {
+    return props.project.featured_pictures;
+  }
+});
 </script>
+
 <template>
   <div
     class="py-16 flex flex-col gap-4 md:gap-8 md:grid grid-cols-6 md:items-center"

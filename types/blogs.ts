@@ -1,17 +1,17 @@
 import type { TypeEvent } from '~/types/general';
 
 export interface TypeNextBlog {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  author: {
     id: number;
-    title: string;
-    slug: string;
-    excerpt: string;
-    author: {
-      id: number;
-      name: string;
-    };
-    event: TypeEvent;
-    featured_photo?: string;
-  }
+    name: string;
+  };
+  event: TypeEvent | null;
+  featured_photo?: string;
+}
 export interface TypeBlog {
   id: number;
   title: string;
@@ -24,7 +24,6 @@ export interface TypeBlog {
     id: number;
     name: string;
   };
-  event: TypeEvent;
+  event: TypeEvent | null;
   next_blog: TypeNextBlog | null;
 }
-

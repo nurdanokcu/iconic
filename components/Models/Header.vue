@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import { image01Zoomed } from "~/assets/images";
+import {
+  image01Zoomed,
+  slider01,
+  slider02,
+  slider03,
+  slider04,
+  slider05,
+} from '~/assets/images';
 
 defineProps({
   paginationAlign: {
     type: String,
-    default: "left",
+    default: 'left',
   },
   heightClasses: {
     type: String,
-    default: "h-[500px] 2xl:h-[600px]",
+    default: 'h-[500px] 2xl:h-[600px]',
   },
 });
+
+const images = [slider04, slider02, slider03, slider01, slider05];
 </script>
 
 <template>
@@ -30,6 +39,7 @@ defineProps({
       <ModelsSwiper
         :pagination-align="paginationAlign"
         :height-classes="heightClasses"
+        :images="images"
       />
     </div>
     <IconsDecor02

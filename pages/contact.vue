@@ -1,7 +1,7 @@
 <template>
   <div class="mt-nav">
     <main
-      class="px-4 md:px-6 min-h-screen-height mx-auto lg:max-w-page-width-md lg:px-20 flex flex-col justify-center items-center"
+      class="px-4 md:px-6 min-h-screen-height-sm mx-auto lg:max-w-page-width-md lg:px-20 flex flex-col justify-center items-center"
     >
       <Contact class="w-full py-16 overflow-hidden" title-tag="h1" />
       <div class="flex flex-col md:flex-row items-center justify-center gap-4 py-8 w-full">

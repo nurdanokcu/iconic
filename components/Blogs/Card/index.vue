@@ -1,34 +1,35 @@
 <script setup lang="ts">
-import type { TypeBlog } from "~/types/blogs";
-import { cn } from "@/lib/utils";
+import type { TypeBlog } from '~/types/blogs';
+import { cn } from '@/lib/utils';
+
 const props = defineProps({
   blog: {
     type: Object as PropType<TypeBlog>,
     required: true,
   },
   variant: {
-    type: String as PropType<"default" | "featured">,
-    default: "default",
+    type: String as PropType<'default' | 'featured'>,
+    default: 'default',
   },
   layout: {
-    type: String as PropType<"horizontal" | "vertical">,
-    default: "vertical",
+    type: String as PropType<'horizontal' | 'vertical'>,
+    default: 'vertical',
   },
 });
 
 const classes = computed(() =>
   cn(
-    "rounded-s relative overflow-hidden",
+    'rounded-s relative overflow-hidden',
     // Variant-specific classes
     {
-      "bg-surface-secondary text-white": props.variant === "featured",
-      "bg-surface-primary text-text-primary": props.variant === "default",
+      'bg-surface-secondary text-white': props.variant === 'featured',
+      'bg-surface-primary text-text-primary': props.variant === 'default',
     },
     // Layout-specific classes
-    props.layout === "horizontal"
-      ? "grid grid-cols-3 grid-rows-1 gap-4 max-h-96"
-      : "flex flex-col border border-surface-secondary p-5 gap-6"
-  )
+    props.layout === 'horizontal'
+      ? 'grid grid-cols-3 grid-rows-1 gap-4 max-h-96'
+      : 'flex flex-col border border-surface-secondary p-5 gap-6',
+  ),
 );
 </script>
 

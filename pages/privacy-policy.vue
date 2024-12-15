@@ -2,7 +2,9 @@
   <div class="mt-nav">
     <main class="max-content-centered-md min-h-screen-height flex flex-col py-16">
       <div class="flex flex-col gap-6 text-sm">
-        <h1 class="font-foglihten text-4xl sm:text-6xl uppercase">Privacy Policy</h1>
+        <h1 class="font-foglihten text-4xl sm:text-6xl uppercase">
+          Privacy Policy
+        </h1>
         <div class="flex flex-col gap-6">
           <p>
             At Iconic Modeling Agency, your privacy is critically important to
@@ -12,7 +14,9 @@
           </p>
 
           <div>
-            <p class="font-bold">1. Information We Collect</p>
+            <p class="font-bold">
+              1. Information We Collect
+            </p>
             <ul class="list-disc pl-5">
               <li>
                 <strong>Non-Personal Information:</strong> We may collect data
@@ -30,7 +34,9 @@
           </div>
 
           <div>
-            <p class="font-bold">2. How We Use Your Information</p>
+            <p class="font-bold">
+              2. How We Use Your Information
+            </p>
             <ul class="list-disc pl-5">
               <li>To provide and improve our services.</li>
               <li>To respond to inquiries or requests.</li>
@@ -39,7 +45,9 @@
           </div>
 
           <div>
-            <p class="font-bold">3. Cookies and Tracking Technologies</p>
+            <p class="font-bold">
+              3. Cookies and Tracking Technologies
+            </p>
             <ul class="list-disc pl-5">
               <li>
                 <strong>Cookies:</strong> We use cookies to enhance your
@@ -56,7 +64,9 @@
           </div>
 
           <div>
-            <p class="font-bold">4. Sharing Your Information</p>
+            <p class="font-bold">
+              4. Sharing Your Information
+            </p>
             <p>
               We do not sell or rent your personal information. Your data may be
               shared only in these cases:
@@ -71,7 +81,9 @@
           </div>
 
           <div>
-            <p class="font-bold">5. Data Security</p>
+            <p class="font-bold">
+              5. Data Security
+            </p>
             <p>
               We take appropriate measures to protect your personal data from
               unauthorized access or disclosure. However, no method of data
@@ -80,7 +92,9 @@
           </div>
 
           <div>
-            <p class="font-bold">6. Third-Party Links</p>
+            <p class="font-bold">
+              6. Third-Party Links
+            </p>
             <p>
               Our website may link to external sites. We are not responsible for
               the privacy practices or content of these third-party websites.
@@ -88,7 +102,9 @@
           </div>
 
           <div>
-            <p class="font-bold">7. Your Rights</p>
+            <p class="font-bold">
+              7. Your Rights
+            </p>
             <p>Under applicable laws, you have the right to:</p>
             <ul class="list-disc pl-5">
               <li>Access, correct, or delete your personal data.</li>
@@ -109,7 +125,9 @@
           </div>
 
           <div>
-            <p class="font-bold">8. Updates to This Policy</p>
+            <p class="font-bold">
+              8. Updates to This Policy
+            </p>
             <p>
               We may update this Privacy Policy periodically. Continued use of
               our website after changes are posted constitutes acceptance of the
@@ -118,18 +136,20 @@
           </div>
 
           <div>
-            <p class="font-bold">9. Contact Information</p>
+            <p class="font-bold">
+              9. Contact Information
+            </p>
             <p>
               <strong>Iconic Modeling Agency</strong><br />
               Main Street 123, Berlin, Germany<br />
-              Email: 
+              Email:
               <NuxtLink
                 to="mailto:info@iconic.com"
                 class="hover:text-text-secondary transition-all"
               >
                 info@iconic.com
               </NuxtLink><br />
-              Phone: 
+              Phone:
               <NuxtLink
                 to="tel:+49123456789"
                 class="hover:text-text-secondary transition-all"

@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { pagePaths } from "~/config/paths";
-const userIcon = resolveComponent("IconsUser");
-const announcement = resolveComponent("IconsAnnouncement");
-const alignJustify = resolveComponent("IconsAlignJustify");
+import { pagePaths } from '~/config/paths';
+
+const userIcon = resolveComponent('IconsUser');
+const announcement = resolveComponent('IconsAnnouncement');
+const alignJustify = resolveComponent('IconsAlignJustify');
 
 const contactFormLinks = [
-  { text: "Browse models", to: pagePaths.models, icon: userIcon },
-  { text: "Browse projects", to: pagePaths.projects, icon: announcement },
-  { text: "Read blogs", to: pagePaths.blogs, icon: alignJustify },
+  { text: 'Browse models', to: pagePaths.models, icon: userIcon },
+  { text: 'Browse projects', to: pagePaths.projects, icon: announcement },
+  { text: 'Read blogs', to: pagePaths.blogs, icon: alignJustify },
 ];
-const hoveredLink = ref("");
+const hoveredLink = ref('');
 </script>
 
 <template>
@@ -31,16 +32,16 @@ const hoveredLink = ref("");
         @mouseleave="hoveredLink = ''"
       >
         <Button
+          v-auto-animate
           variant="secondary"
           class="w-full justify-between group-hover:text-stroke-md"
           animate-direction="right"
-          v-auto-animate
         >
           <component :is="link.icon" />
           <span>{{ link.text }}</span>
           <component
-            v-if="hoveredLink === link.text"
             :is="link.icon"
+            v-if="hoveredLink === link.text"
             color="var(--black)"
           />
         </Button>

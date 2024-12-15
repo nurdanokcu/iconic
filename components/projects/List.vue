@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { projects } from "~/data/projects";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
-const finalPictures = computed(() => [
-  ...projects,
-  ...projects,
-]);
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { projects } from '~/data/projects';
+
+const finalPictures = computed(() => {
+  if (projects.length < 3) {
+    return [...projects, ...projects];
+  } else {
+    return projects;
+  }
+});
 </script>
 
 <template>
-  <div class="py-8 max-lg:px-4">
+  <div v-if="finalPictures.length" class="py-8 max-lg:px-4">
     <Swiper
       slides-per-view="auto"
       centered-slides
