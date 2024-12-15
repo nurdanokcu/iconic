@@ -3,6 +3,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     await nextTick();
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 500);
+    }, 300);
   }
 });
