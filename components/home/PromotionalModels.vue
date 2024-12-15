@@ -46,11 +46,11 @@ const randomEightModels = allModels.slice(0, 8);
           :to="makeModelPath(model.slug)"
           class="flex flex-col gap-2 group"
         >
-          <AspectRatio :ratio="1 / 1" class="relative overflow-hidden">
+          <AspectRatio :ratio="1 / 1" class="relative">
             <img
               :src="model.featured_photo"
               alt="Model"
-              class="object-cover w-full h-full object-top grayscale transform transition-transform duration-500 group-hover:scale-110 overflow-visible"
+              class="object-cover w-full h-full object-top grayscale transform transition-transform duration-500 group-hover:scale-110"
             />
           </AspectRatio>
           <p class="uppercase text-sm leading-tight">{{ model.name }}</p>

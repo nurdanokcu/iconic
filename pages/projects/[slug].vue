@@ -61,7 +61,7 @@ await fetchProject();
       />
       <ProjectsSingleDetails
         :project="currentProject"
-        class="py-16 md:max-w-page-width-lg overflow-visible mx-auto"
+        class="py-16 md:max-w-page-width-lg mx-auto"
       />
       <div
         class="md:max-w-page-width-lg mx-auto px-4 md:px-6 flex justify-end border-b-2 pb-4"

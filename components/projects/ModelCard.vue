@@ -22,7 +22,7 @@ defineProps({
         v-if="image"
         :src="image"
         alt="Model Image"
-        class="object-cover w-full h-full rounded-sm grayscale transform transition-transform duration-500 group-hover:scale-110 overflow-visible"
+        class="object-cover w-full h-full rounded-sm grayscale transform transition-transform duration-500 group-hover:scale-110"
       />
       <span
         v-else
