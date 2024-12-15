@@ -16,7 +16,7 @@ defineProps({
     required: true,
   },
   event: {
-    type: Object as PropType<TypeEvent>,
+    type: Object as PropType<TypeEvent | null>,
     required: true,
   },
   layout: {

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+defineEmits(['onScrollButton']);
+</script>
+
 <template>
   <header
     class="flex flex-col justify-between w-full relative h-full lg:grid lg:grid-cols-5 lg:grid-rows-12"
@@ -12,15 +16,8 @@
       class="h-[270px] md:order-2 md:h-[26%] lg:h-auto lg:col-span-5 lg:row-span-5"
       @on-scroll-button="$emit('onScrollButton')"
     />
-    <div
-      class="bg-text-primary absolute bottom-0 right-0 left-12 h-9 -z-[1]"
-    ></div>
     <IconsDecor03
       class="absolute left-0 -translate-x-1/2 bottom-16 z-10 w-16 md:w-20"
     />
   </header>
 </template>
-
-<script setup lang="ts">
-defineEmits(['onScrollButton']);
-</script>

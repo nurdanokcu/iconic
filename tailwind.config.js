@@ -151,7 +151,7 @@ module.exports = {
           to: { height: 0 },
         },
         'appear': {
-          '0%': { 'transform': 'scale3d(1.1, 1.1, 1)', 'backface-visibility': 'hidden' },
+          '0%': { 'transform': 'scale3d(0.9, 0.9, 1)', 'backface-visibility': 'hidden' },
           '100%': { 'transform': 'scale3d(1, 1, 1)', 'backface-visibility': 'hidden' },
         },
       },

@@ -1,7 +1,7 @@
 <template>
   <div class="mt-nav">
     <main
-      class="max-content-centered-md min-h-screen-height flex flex-col py-16"
+      class="max-content-centered-md min-h-screen-height-sm flex flex-col py-16"
     >
       <div class="flex flex-col gap-6 text-sm md:flex-row md:gap-8">
         <h1 class="font-foglihten text-4xl sm:text-6xl uppercase">

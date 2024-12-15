@@ -40,6 +40,8 @@ const models = computed(() => props.project.featured_models.slice(0, 2));
           v-auto-animate
           as="span"
           text="Read more"
+          :aria-label="`Read more about ${project.name}`"
+          :title="`Read more about ${project.name}`"
           variant="secondary"
           class="w-full"
         >
@@ -49,5 +51,3 @@ const models = computed(() => props.project.featured_models.slice(0, 2));
     </div>
   </div>
 </template>
-
-<style scoped></style>

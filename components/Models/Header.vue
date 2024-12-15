@@ -25,9 +25,9 @@ const images = [slider04, slider02, slider03, slider01, slider05];
 <template>
   <header class="flex flex-col relative max-w-page-width-xl mx-auto">
     <div
-      class="ml-auto max-w-56 w-full -mb-8 z-10 sm:absolute sm:right-0 sm:m-0 md:max-w-96"
+      class="ml-auto max-w-56 w-full -mb-8 z-10 sm:absolute sm:right-0 sm:m-0 md:max-w-96 overflow-hidden"
     >
-      <AspectRatio :ratio="1 / 1">
+      <AspectRatio :ratio="1 / 1" class="animate-appear">
         <img
           :src="image01Zoomed"
           alt="Image"

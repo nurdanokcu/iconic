@@ -64,6 +64,8 @@ const classes = computed(() =>
       <NuxtLink class="w-fit ml-auto" :to="makeBlogPath(blog.slug)">
         <Button
           as="span"
+          :aria-label="`Read more about ${blog.title}`"
+          :title="`Read more about ${blog.title}`"
           text="Read More"
           class="h-10"
           :variant="variant === 'featured' ? 'default' : 'secondary'"

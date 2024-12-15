@@ -68,6 +68,8 @@ const classes = computed(() =>
         <Button
           as="span"
           text="Read More"
+          :aria-label="`Read more about ${blog.title}`"
+          :title="`Read more about ${blog.title}`"
           class="h-10"
           :variant="variant === 'featured' ? 'default' : 'secondary'"
         >
