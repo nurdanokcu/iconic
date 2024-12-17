@@ -31,6 +31,9 @@ const handleClick = () => {
         class="flex items-center gap-8"
         @click="handleClick"
       >
+        <p class="sr-only">
+          Go to the home page
+        </p>
         <IconsLogoCombined color="var(--black)" class="h-auto" />
       </NuxtLink>
       <div class="hidden md:flex gap-4 items-center">

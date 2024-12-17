@@ -39,7 +39,7 @@ defineProps({
     >
       <NuxtImg
         :src="event.primary_icon"
-        :alt="event.name"
+        :alt="event.name + ' icon'"
         class="w-full h-full object-contain"
       />
     </span>
