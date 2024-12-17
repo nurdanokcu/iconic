@@ -14,13 +14,16 @@ const props = defineProps({
   },
 });
 const finalPictures = computed(() => {
-  if (props.project.featured_pictures.length < 3) {
+  if (!props.project.pictures) {
+    return [];
+  }
+  if (props.project.pictures.length < 3) {
     return [
-      ...props.project.featured_pictures,
-      ...props.project.featured_pictures,
+      ...props.project.pictures,
+      ...props.project.pictures,
     ];
   } else {
-    return props.project.featured_pictures;
+    return props.project.pictures;
   }
 });
 </script>
@@ -29,9 +32,21 @@ const finalPictures = computed(() => {
   <div
     class="py-16 flex flex-col gap-4 md:gap-8 md:grid grid-cols-6 md:items-center"
   >
-    <div class="flex flex-col gap-4 md:col-span-3 xl:col-span-4">
+    <!-- Image Section -->
+    <div
+      v-if="finalPictures?.length"
+      :class="{
+        'flex flex-col gap-4 md:col-span-3 xl:col-span-4': finalPictures?.length,
+        'md:col-span-6 xl:col-span-6': !project.description,
+      }"
+    >
       <Swiper
-        :slides-per-view="$viewport.isGreaterThan('tablet') ? 1.2 : 1"
+        :slides-per-view="1"
+        :breakpoints="{
+          768: { slidesPerView: project.description ? 1.1 : 2.4, spaceBetween: 4 },
+          1024: { slidesPerView: project.description ? 1.3 : 2.4 },
+          1280: { slidesPerView: project.description ? 1.3 : 2.4 },
+        }"
         grab-cursor
         :initial-slide="project.featured_pictures.length - 1"
         :modules="[Pagination, Autoplay]"
@@ -58,9 +73,15 @@ const finalPictures = computed(() => {
         </swiper-slide>
       </Swiper>
     </div>
+
+    <!-- Description Section -->
     <div
+      v-if="project.description"
       v-dompurify-html="project.description"
-      class="px-4 md:px-6 md:col-span-3 xl:col-span-2"
+      :class="{
+        'px-4 md:px-6 md:col-span-3 xl:col-span-2': project.description,
+        'md:col-span-6 xl:col-span-6': !finalPictures?.length,
+      }"
     ></div>
   </div>
 </template>

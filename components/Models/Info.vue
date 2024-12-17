@@ -11,8 +11,8 @@ const adjustedEvents = computed(() => {
   return props.model.events.map((event) => {
     return {
       id: event.id,
-      value: event.value,
-      icon: event.icon,
+      slug: event.slug,
+      primary_icon: event.primary_icon,
     };
   }).slice(0, 3);
 });

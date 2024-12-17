@@ -34,15 +34,25 @@ defineProps({
     "
   >
     <span
-      v-if="event.icon"
-      v-dompurify-html="event.icon"
-      :class="
-        cn('w-6 h-6', {
-          'icon-white': variant === 'solid',
-          'icon-primary': variant === 'outline',
-        })
-      "
-    ></span>
+      v-if="event.primary_icon && variant === 'outline'"
+      class="w-6 h-6"
+    >
+      <img
+        :src="event.primary_icon"
+        :alt="event.name"
+        class="w-full h-full object-contain"
+      />
+    </span>
+    <span
+      v-if="event.secondary_icon && variant === 'solid'"
+      class="w-6 h-6"
+    >
+      <img
+        :src="event.secondary_icon"
+        :alt="event.name"
+        class="w-full h-full object-contain"
+      />
+    </span>
     <span v-if="event.name" :class="cn(size === 'lg' && 'pt-1')">
       {{ event.name }}
     </span>

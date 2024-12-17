@@ -10,12 +10,12 @@ export interface TypeNextBlog {
     name: string;
   };
   event: TypeEvent | null;
-  featured_photo?: string;
+  featured_image?: string;
 }
 export interface TypeBlog {
   id: number;
   title: string;
-  featured_photo?: string;
+  featured_image?: string;
   excerpt: string;
   content: string;
   is_featured: boolean;

@@ -1,6 +1,7 @@
 export interface TypeEvent {
   id: number;
-  value: string;
   name?: string;
-  icon?: string;
+  slug: string;
+  primary_icon: string;
+  secondary_icon?: string;
 }

@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="flex items-center gap-4">
-    <IconsAlert color="var(--red-100)" />
+    <IconsAlert color="var(--red-300)" />
     <p class="text-sm">
       {{ message }}
     </p>

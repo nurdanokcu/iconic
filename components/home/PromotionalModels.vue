@@ -1,14 +1,50 @@
 <script setup lang="ts">
 import { pagePaths } from '~/config/paths';
-import { models, moreModels } from '~/data/models';
+import type { TypeModel } from '~/types/models';
 
-const allModels = [...models, ...moreModels];
-const randomEightModels = allModels.slice(0, 8);
+const promotionalModels = ref<TypeModel[]>([]);
+const errorMessage = ref('');
+const isLoading = ref(false);
+const { fetchPromotionalModelsClient } = modelsApi();
+const modelsLayout = computed(() => {
+  const count = promotionalModels.value.length;
+  const classes = [];
+  switch (count) {
+    case 1:
+      classes.push('grid-cols-1 mx-auto md:ml-auto');
+      break;
+    case 2:
+      classes.push('grid-cols-2');
+      break;
+    case 3:
+      classes.push('grid-col-1 sm:grid-cols-3');
+      break;
+    default:
+      classes.push('grid-col-1 sm:grid-cols-3 lg:grid-cols-4');
+      break;
+  }
+  return classes;
+});
+
+onMounted(async () => {
+  isLoading.value = true;
+  try {
+    const response = await fetchPromotionalModelsClient();
+    promotionalModels.value = response.data;
+    if (!response.data.length) {
+      errorMessage.value = 'No promotional models found.';
+    }
+  } catch (error: any) {
+    errorMessage.value = error?.data.message || 'An error occurred while fetching promotional models.';
+  } finally {
+    isLoading.value = false;
+  }
+});
 </script>
 
 <template>
   <div
-    class="relative flex flex-col gap-16 items-center w-full text-white lg:grid lg:grid-cols-2 lg:gap-16"
+    class="relative flex flex-col gap-16 items-center w-full text-white md:grid md:grid-cols-2 md:gap-16"
   >
     <div class="flex flex-col gap-2">
       <h3 class="font-foglihten text-5xl leading-snug">
@@ -30,7 +66,7 @@ const randomEightModels = allModels.slice(0, 8);
       </p>
     </div>
     <div class="flex flex-col gap-4 w-full">
-      <NuxtLink :to="pagePaths.models" class="ml-auto">
+      <NuxtLink :to="pagePaths.models" class="mx-auto md:ml-auto">
         <Button
           as="span"
           text="Browse By Event"
@@ -39,14 +75,32 @@ const randomEightModels = allModels.slice(0, 8);
           <IconsSearch />
         </Button>
       </NuxtLink>
-      <div class="grid grid-cols-2 gap-4 w-full sm:grid-cols-3 md:grid-cols-4">
+      <CommonNotification
+        v-if="errorMessage"
+        class="mx-auto md:ml-auto"
+        :message="errorMessage"
+      />
+      <div
+        v-else-if="isLoading"
+        :class="['grid  gap-4 w-full', modelsLayout]"
+      >
+        <div
+          v-for="i in 4"
+          :key="i"
+          class="w-full animate-pulse h-36 bg-gray-200 opacity-50 rounded-md"
+        />
+      </div>
+      <div
+        v-else-if="promotionalModels.length"
+        :class="['grid  gap-4 w-full', modelsLayout]"
+      >
         <NuxtLink
-          v-for="model in randomEightModels"
+          v-for="model in promotionalModels"
           :key="model.id"
           :to="makeModelPath(model.slug)"
-          class="flex flex-col gap-2 group"
+          class="flex flex-col w-full gap-2 group max-w-80 mx-auto md:ml-auto"
         >
-          <AspectRatio :ratio="1 / 1" class="relative">
+          <AspectRatio :ratio="1 / 1" class="relative overflow-hidden">
             <img
               :src="model.featured_photo"
               alt="Model"

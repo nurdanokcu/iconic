@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
   <div>
     <!-- Lock Screen -->
     <div
-      class="fixed inset-0 top-0 h-screen z-50 bg-white transition-transform duration-700 ease-in-out overflow-hidden"
+      class="fixed inset-0 top-0 h-[100svh] z-50 bg-white transition-transform duration-700 ease-in-out overflow-hidden"
       :class="isLockScreenVisible ? 'translate-y-0' : '-translate-y-full'"
     >
       <HomeHeader

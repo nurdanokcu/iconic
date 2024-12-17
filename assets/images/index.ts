@@ -23,3 +23,4 @@ export { default as random01 } from './random_1.jpg';
 export { default as random02 } from './random_2.jpg';
 export { default as random03 } from './random_3.jpg';
 export { default as random04 } from './random_4.jpg';
+export { default as carIcon } from './car_icon.png';

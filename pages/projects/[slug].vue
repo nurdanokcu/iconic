@@ -1,58 +1,36 @@
 <script setup lang="ts">
 import { pagePaths } from '~/config/paths';
-import { projects } from '~/data/projects';
 import type { TypeProject } from '~/types/projects';
 
+const { fetchSingleProjectsSSR } = projectsApi();
 const route = useRoute();
 const router = useRouter();
-const currentProject = ref<TypeProject>({
-  id: 0,
-  name: '',
-  slug: '',
-  date: '',
-  featured_description: '',
-  featured_models: [],
-  featured_pictures: [],
-  next_project_slug: '',
-  pictures: [],
-  description: '',
-});
-const slug = route.params.slug as string;
-if (!slug) {
+const projectSlug = route.params.slug as string;
+
+const currentProject = ref<TypeProject>();
+if (!projectSlug) {
   router.push(pagePaths.projects);
 }
-
-const findProject = (): Promise<TypeProject | null> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const foundProject = projects.find(project => project.slug === slug);
-      if (!foundProject) {
-        reject(new Error('Project not found'));
-      } else {
-        resolve(foundProject);
-      }
-    }, 1000);
-  });
-};
 const fetchProject = async () => {
-  try {
-    const response = await findProject();
-    if (!response) {
-      router.push(pagePaths.projects);
-      return;
-    }
-    currentProject.value = response;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
+  const { data, error } = await fetchSingleProjectsSSR(projectSlug);
+  if (error.value) {
+    router.push(pagePaths.projects);
+    return;
+  }
+  if (data.value) {
+    currentProject.value = data.value.data;
+  } else {
     router.push(pagePaths.projects);
   }
 };
-
 await fetchProject();
 </script>
 
 <template>
-  <div class="mt-nav overflow-x-hidden">
+  <div
+    v-if="currentProject"
+    class="mt-nav overflow-x-hidden"
+  >
     <ProjectsSingleHeader :title="currentProject.name" />
     <main>
       <ProjectsSingleContent
@@ -60,6 +38,7 @@ await fetchProject();
         class="px-4 md:px-6 max-w-lg md:max-w-page-width-lg mx-auto"
       />
       <ProjectsSingleDetails
+        v-if="currentProject.description || currentProject.pictures"
         :project="currentProject"
         class="py-16 md:max-w-page-width-lg mx-auto"
       />

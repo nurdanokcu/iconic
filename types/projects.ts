@@ -16,7 +16,7 @@ export interface TypeProject {
   featured_pictures: string[];
   pictures: string[];
   description: string;
-  event?: TypeEvent;
+  events?: TypeEvent;
   featured_models: TypeModelSummary[];
   slug: string;
   next_project_slug: string | null;

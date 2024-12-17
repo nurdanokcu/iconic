@@ -1,71 +1,36 @@
 <script setup lang="ts">
-import { pagePaths } from '~/config/paths';
-import { blogs } from '~/data/blogs';
 import type { TypeBlog } from '~/types/blogs';
+import { pagePaths } from '~/config/paths';
 
+const { fetchSingleBlogSSR } = blogsApi();
 const route = useRoute();
 const router = useRouter();
-const currentBlog = ref<TypeBlog>({
-  id: 0,
-  title: '',
-  excerpt: '',
-  content: '',
-  featured_photo: '',
-  is_featured: false,
-  slug: '',
-  author: {
-    id: 0,
-    name: '',
-  },
-  event: null,
-  next_blog: {
-    id: 2,
-    title: '',
-    slug: '',
-    excerpt: '',
-    author: {
-      id: 2,
-      name: '',
-    },
-    event: null,
-  },
-});
-const slug = route.params.slug as string;
-if (!slug) {
+const blogSlug = route.params.slug as string;
+
+const currentBlog = ref<TypeBlog>();
+if (!blogSlug) {
   router.push(pagePaths.blogs);
 }
-
-const findProject = (): Promise<TypeBlog | null> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const foundBlog = blogs.find(blog => blog.slug === slug);
-      if (!foundBlog) {
-        reject(new Error('Blog not found'));
-      } else {
-        resolve(foundBlog);
-      }
-    }, 1000);
-  });
-};
-const fetchProject = async () => {
-  try {
-    const response = await findProject();
-    if (!response) {
-      router.push(pagePaths.blogs);
-      return;
-    }
-    currentBlog.value = response;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
+const getBlog = async () => {
+  const { data, error } = await fetchSingleBlogSSR(blogSlug);
+  if (error.value) {
+    router.push(pagePaths.blogs);
+    return;
+  }
+  if (data.value) {
+    currentBlog.value = data.value.data;
+  } else {
     router.push(pagePaths.blogs);
   }
 };
-
-await fetchProject();
+await getBlog();
 </script>
 
 <template>
-  <div class="mt-nav overflow-x-hidden min-h-screen-height">
+  <div
+    v-if="currentBlog"
+    class="mt-nav overflow-x-hidden min-h-screen-height"
+  >
     <BlogsSingleHeader :title="currentBlog.title" :event="currentBlog?.event" />
     <main class="max-content-centered-md">
       <div

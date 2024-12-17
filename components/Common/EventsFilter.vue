@@ -1,28 +1,21 @@
 <script setup lang="ts">
-import { events } from '~/data/events';
 import type { TypeEvent } from '~/types/general';
 
-const route = useRoute();
-
 const props = defineProps({
-  loadingEvent: {
-    type: String,
+  loadingEventId: {
+    type: Number,
     required: true,
   },
   selectedEvent: {
     type: Object as PropType<TypeEvent>,
     required: true,
   },
+  events: {
+    type: Array as PropType<TypeEvent[]>,
+    required: true,
+  },
 });
-const emits = defineEmits(['onSelect']);
-if (route.query.event) {
-  const event = events.find(
-    event => event.value === String(route.query.event),
-  );
-  if (event) {
-    emits('onSelect', event);
-  }
-}
+defineEmits(['onSelect']);
 const isSelectedEvent = (eventId: number) => props.selectedEvent.id === eventId;
 </script>
 
@@ -38,7 +31,7 @@ const isSelectedEvent = (eventId: number) => props.selectedEvent.id === eventId;
         :event="event"
       >
         <IconsSpinner
-          v-if="loadingEvent === event.value"
+          v-if="loadingEventId === event.id"
           class="animate-spin"
         />
       </CommonEventTag>

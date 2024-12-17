@@ -3,42 +3,68 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
-import { blogs, featuredBlog } from '~/data/blogs';
 import { pagePaths } from '~/config/paths';
+import type { TypeBlog } from '~/types/blogs';
 
-const settings = {
-  slidesPerView: 1.2,
-  breakpoints: {
-    640: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 2.4,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
+const { fetchBlogsClient } = blogsApi();
+const blogs = ref<TypeBlog[]>([]);
+const isLoading = ref(false);
+const errorMessage = ref('');
+
+const computedSettings = computed(() => ({
+  slidesPerView: Math.min(blogs.value.length, 1.2),
+  loop: blogs.value.length > 3,
+  centeredSlides: blogs.value.length > 3,
   grabCursor: true,
-  centeredSlides: true,
-  modules: [Navigation, Autoplay],
-  loop: true,
-  keyboard: { enabled: true },
-  speed: 800,
-  autoplay: {
-    delay: 3000,
-    pauseOnMouseEnter: true,
-  },
   spaceBetween: 16,
+  modules: [Navigation, Autoplay],
   initialSlide: 1,
+  speed: 800,
+  autoplay: blogs.value.length > 1
+    ? { delay: 3000, pauseOnMouseEnter: true }
+    : false,
   navigation: {
     nextEl: '#next-blog',
     prevEl: '#prev-blog',
   },
-};
+  breakpoints: {
+    640: {
+      slidesPerView: Math.min(blogs.value.length, 1.2),
+    },
+    768: {
+      slidesPerView: Math.min(blogs.value.length, 2.2),
+    },
+    1024: {
+      slidesPerView: Math.min(blogs.value.length, 3),
+    },
+  },
+}));
 
-const computedBlogs = computed(() => {
-  return [blogs[0], featuredBlog, ...blogs.slice(1)];
+onMounted(async () => {
+  isLoading.value = true;
+  try {
+    const response = await fetchBlogsClient({
+      limit: 5,
+      offset: 0,
+    });
+    blogs.value = response.data;
+    if (!blogs.value.length) {
+      errorMessage.value = 'No blogs found.';
+    }
+    if (blogs.value.length > 3) {
+      const featuredIndex = blogs.value.findIndex((blog: TypeBlog) => blog.is_featured);
+      if (featuredIndex > -1) {
+        const [featuredBlog] = blogs.value.splice(featuredIndex, 1);
+
+        // Place the featured blog as the second item
+        blogs.value.splice(1, 0, featuredBlog);
+      }
+    }
+  } catch (error: any) {
+    errorMessage.value = error?.data.message || 'An error occurred while fetching blogs.';
+  } finally {
+    isLoading.value = false;
+  }
 });
 </script>
 
@@ -49,7 +75,25 @@ const computedBlogs = computed(() => {
     >
       Blog
     </h4>
-    <div class="flex gap-2 items-center relative">
+    <div
+      v-if="isLoading"
+      class="flex flex-col gap-4 md:flex-row w-full"
+    >
+      <div
+        v-for="i in 2"
+        :key="i"
+        class="w-full animate-pulse h-80 bg-gray-200 opacity-50 rounded-md"
+      />
+    </div>
+    <CommonNotification
+      v-else-if="errorMessage"
+      class="ml-auto"
+      :message="errorMessage"
+    />
+    <div
+      v-else-if="blogs.length"
+      class="flex gap-2 items-center relative"
+    >
       <Button
         id="prev-blog"
         class="w-8 h-full absolute -left-8"
@@ -60,15 +104,15 @@ const computedBlogs = computed(() => {
         <IconsChevronLeft />
       </Button>
       <swiper
-        v-bind="settings"
-        class="blogs-swiper pt-4"
+        v-bind="computedSettings"
+        class="blogs-swiper pt-4 w-full"
       >
         <swiper-slide
-          v-for="blog in computedBlogs"
+          v-for="blog in blogs"
           :key="blog.id"
           class=""
         >
-          <BlogsCard
+          <BlogsCardVertical
             :blog="blog"
             class="h-full"
             :variant="blog.is_featured ? 'featured' : 'default'"
@@ -116,7 +160,7 @@ const computedBlogs = computed(() => {
 }
 
 .blogs-swiper .swiper-slide-active {
-  transform: translateY(-16px);
+  transform: translateY(-16px) !important;
   z-index: 1;
 }
 </style>

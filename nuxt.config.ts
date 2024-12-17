@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     'nuxt-viewport',
   ],
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV === 'development' },
   app: {
     head: {
       htmlAttrs: {
@@ -31,6 +31,12 @@ export default defineNuxtConfig({
   site: {
     url: process.env.APP_DOMAIN_URL,
     name: 'Iconic Modeling Agency',
+  },
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL,
+      domain: process.env.APP_DOMAIN_URL,
+    },
   },
   compatibilityDate: '2024-11-01',
   eslint: {
@@ -98,5 +104,8 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui',
+  },
+  sitemap: {
+    sources: ['/api/sitemap'],
   },
 });

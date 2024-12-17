@@ -32,20 +32,21 @@ const classes = computed(() =>
     <div
       :class="
         cn({
-          'sm:grid sm:grid-cols-2 lg:col-span-2': blog.featured_photo,
+          'sm:grid sm:grid-cols-2 lg:col-span-2': blog.featured_image,
         })
       "
     >
-      <div
-        v-if="blog.featured_photo"
+      <AspectRatio
+        v-if="blog.featured_image"
+        :ratio="1 / 1"
         class="rounded-sm overflow-hidden relative z-10 shrink-0"
       >
         <img
           class="w-full h-full object-cover grayscale"
-          :src="blog.featured_photo"
+          :src="blog.featured_image"
           :alt="blog.title"
         />
-      </div>
+      </AspectRatio>
       <BlogsCardTitle
         :author-name="blog.author.name"
         :title="blog.title"
@@ -59,11 +60,11 @@ const classes = computed(() =>
       class="flex flex-col justify-between gap-6 flex-1 h-full p-4"
       :class="
         cn({
-          'lg:col-span-2': !blog.featured_photo,
+          'lg:col-span-2': !blog.featured_image,
         })
       "
     >
-      <div v-dompurify-html="blog.content" class="text-sm line-clamp-[12]" />
+      <div v-dompurify-html="blog.excerpt" class="text-sm line-clamp-[12]" />
       <NuxtLink class="w-fit ml-auto" :to="makeBlogPath(blog.slug)">
         <Button
           as="span"

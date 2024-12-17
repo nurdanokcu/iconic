@@ -3,11 +3,11 @@ import { menuLinks } from '~/config/paths';
 </script>
 
 <template>
-  <div class="flex flex-col gap-6 justify-center relative">
-    <h1 class="flex flex-col gap-2 md:items-end lg:items-start">
+  <div class="flex flex-col gap-2 justify-center relative">
+    <h1 class="flex flex-col gap-1 md:items-end lg:items-start">
       <span class="sr-only">Iconic Modeling Agency</span>
-      <IconsLogoWord class="max-w-60 sm:max-w-80" />
-      <IconsLogoText class="max-w-60 sm:max-w-80" />
+      <IconsLogoWord class="max-w-52 sm:max-w-80" />
+      <IconsLogoText class="max-w-52 sm:max-w-80" />
     </h1>
     <div class="flex flex-col gap-4 md:flex-row lg:flex-col">
       <NuxtLink
@@ -20,7 +20,7 @@ import { menuLinks } from '~/config/paths';
           :text="link.text"
           variant="secondary"
           size="md"
-          class="w-full"
+          class="w-full h-8 md:h-10"
         />
       </NuxtLink>
     </div>

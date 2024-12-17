@@ -130,7 +130,7 @@
     @apply max-w-page-width-xl mx-auto px-4 md:px-6;
   }
   .centered-container {
-    @apply py-16 max-w-lg mx-auto lg:max-w-page-width-md px-4 md:px-6;
+    @apply py-16 max-w-lg mx-auto md:max-w-page-width-md px-4 md:px-6;
   }
 
   .text-stroke-sm {

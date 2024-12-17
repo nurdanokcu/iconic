@@ -1,56 +1,25 @@
 <script setup lang="ts">
-import { models, moreModels } from '~/data/models';
-import type { TypeModel } from '~/types/models';
+import type { TypeModelDetailed } from '~/types/models';
 import { pagePaths } from '~/config/paths';
 
+const { fetchSingleModelSSR } = modelsApi();
 const route = useRoute();
 const router = useRouter();
 const modelSlug = route.params.slug as string;
-const allModels = [...models, ...moreModels];
 
-const currentModel = ref<TypeModel>({
-  id: 0,
-  name: '',
-  slug: '',
-  characteristics: [],
-  events: [],
-  featured_photo: '',
-  featured_project: null,
-  images: [],
-  is_promotional: false,
-  role: '',
-  cover_photo: '',
-});
+const currentModel = ref<TypeModelDetailed>();
 if (!modelSlug) {
   router.push(pagePaths.models);
 }
-
-const findModel = (
-  models: TypeModel[],
-  slug: string,
-): Promise<TypeModel | null> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const model = models.find(model => model.slug === slug);
-      if (!model) {
-        reject(new Error('Model not found'));
-      } else {
-        resolve(model);
-      }
-    }, 1000);
-  });
-};
-
 const fetchModel = async () => {
-  try {
-    const model = await findModel(allModels, modelSlug);
-    if (!model) {
-      router.push(pagePaths.models);
-      return;
-    }
-    currentModel.value = model;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
+  const { data, error } = await fetchSingleModelSSR(modelSlug);
+  if (error.value) {
+    router.push(pagePaths.models);
+    return;
+  }
+  if (data.value) {
+    currentModel.value = data.value.data;
+  } else {
     router.push(pagePaths.models);
   }
 };
@@ -58,7 +27,10 @@ await fetchModel();
 </script>
 
 <template>
-  <div class="mt-nav">
+  <div
+    v-if="currentModel"
+    class="mt-nav"
+  >
     <ModelsSingleHeader
       :header-image="currentModel.cover_photo"
       :model-name="currentModel.name"
@@ -68,8 +40,8 @@ await fetchModel();
     <main class="">
       <ModelsSingleEventTypes class="md:hidden" :events="currentModel.events" />
       <CommonFeaturedProject
-        v-if="currentModel.featured_project"
-        :project="currentModel.featured_project"
+        v-if="currentModel.featured_projects"
+        :project="currentModel.featured_projects"
         :is-event-visible="false"
         title="Featured in project"
         class="centered-container"

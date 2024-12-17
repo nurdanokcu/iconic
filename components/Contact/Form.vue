@@ -6,6 +6,7 @@ import { useToast } from '~/components/ui/toast/use-toast';
 import { pagePaths } from '~/config/paths';
 
 const { toast } = useToast();
+const { sendContact } = contactApi();
 
 defineProps({
   titleTag: {
@@ -35,18 +36,22 @@ const { handleSubmit, handleReset } = useForm({
 
 const onSubmit = handleSubmit(async (values) => {
   try {
-    console.log(values);
     isLoading.value = true;
-    // Simulate a request
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const contactData = {
+      name: values.username,
+      email: values.email,
+      message: values.message,
+    };
+    await sendContact(contactData);
     toast({
       description: 'Your message has been sent successfully!',
       variant: 'success',
     });
     handleReset();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     toast({
-      description: 'An error occurred while sending your message.',
+      description: error.message,
       variant: 'error',
     });
   } finally {
