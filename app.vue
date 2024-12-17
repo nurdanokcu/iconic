@@ -1,5 +1,6 @@
 <script setup>
-const description = 'Iconic Modeling Agency';
+const title = 'Iconic Modeling Agency';
+const description = 'Iconic is a new modeling agency in Germany, but we are already making waves. We represent some of the most promising new models in the country, and we are committed to helping them achieve their modeling goals.';
 
 useHead({
   link: [
@@ -15,6 +16,19 @@ useHead({
       content: description,
     },
   ],
+});
+useSeoMeta({
+  ogImage: '/og-image.png',
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: '/twitter-image.png',
+  twitterCard: 'summary',
+});
+
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
 });
 </script>
 

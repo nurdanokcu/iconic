@@ -16,9 +16,6 @@ export default defineNuxtConfig({
   devtools: { enabled: process.env.NODE_ENV === 'development' },
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'en',
-      },
       link: [
         { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
         {
