@@ -66,7 +66,7 @@ onMounted(async () => {
       </p>
     </div>
     <div class="flex flex-col gap-4 w-full">
-      <NuxtLink :to="pagePaths.models" class="mx-auto md:ml-auto">
+      <NuxtLink :to="pagePaths.models" class="mx-auto md:ml-auto md:mr-0">
         <Button
           as="span"
           text="Browse By Event"
