@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { pagePaths } from '~/config/paths';
 import type { TypeProject } from '~/types/projects';
+import { seoData } from '~/data/seoData';
 
 const { fetchSingleProjectsSSR } = projectsApi();
 const route = useRoute();
@@ -23,7 +24,12 @@ const fetchProject = async () => {
     router.push(pagePaths.projects);
   }
 };
+
 await fetchProject();
+const title = currentProject.value?.name ? `${currentProject.value.name} | Iconic Modeling Agency` : seoData.projects.title; ;
+const description = currentProject.value?.featured_description.slice(0, 225) || seoData.projects.description;
+
+useSeoHead(title, description);
 </script>
 
 <template>

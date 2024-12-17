@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TypeModelDetailed } from '~/types/models';
 import { pagePaths } from '~/config/paths';
+import { seoData } from '~/data/seoData';
 
 const { fetchSingleModelSSR } = modelsApi();
 const route = useRoute();
@@ -24,6 +25,10 @@ const fetchModel = async () => {
   }
 };
 await fetchModel();
+const title = currentModel.value?.name ? `${currentModel.value.name} | Iconic Modeling Agency` : seoData.projects.title; ;
+const description = seoData.projects.description;
+
+useSeoHead(title, description);
 </script>
 
 <template>

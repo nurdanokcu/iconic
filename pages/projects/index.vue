@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { seoData } from '~/data/seoData';
+
+useSeoHead(seoData.projects.title, seoData.projects.description);
+</script>
+
 <template>
   <div class="mt-nav">
     <div class="bg-text-secondary py-8 overflow-x-clip mb-8 relative">

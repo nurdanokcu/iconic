@@ -48,8 +48,8 @@ export default defineSitemapEventHandler(async () => {
 
       links.push(...modelsLinks, ...projectsLinks, ...blogsLinks);
     }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    console.error('Error fetching sitemap data:', error);
     return [];
   }
 

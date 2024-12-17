@@ -70,7 +70,11 @@ onUnmounted(() => {
             </p>
           </div>
         </div>
-        <ModelsSingleEventTypes class="hidden md:flex max-w-96" :events="events" />
+        <ModelsSingleEventTypes
+          v-if="events && events?.length"
+          class="hidden md:flex max-w-96"
+          :events="events"
+        />
       </div>
     </div>
     <IconsDecor03 class="absolute top-4 left-0 -translate-x-1/2" color="var(--white)" />

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TypeBlog } from '~/types/blogs';
 import { pagePaths } from '~/config/paths';
+import { seoData } from '~/data/seoData';
 
 const { fetchSingleBlogSSR } = blogsApi();
 const route = useRoute();
@@ -24,6 +25,11 @@ const getBlog = async () => {
   }
 };
 await getBlog();
+
+// SEO data
+const title = currentBlog.value?.title ? `${currentBlog.value.title} | Iconic Modeling Agency` : seoData.projects.title; ;
+const description = currentBlog.value?.excerpt.slice(0, 225) || seoData.projects.description;
+useSeoHead(title, description);
 </script>
 
 <template>

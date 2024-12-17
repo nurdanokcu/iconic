@@ -37,7 +37,7 @@ defineProps({
       v-if="event.primary_icon && variant === 'outline'"
       class="w-6 h-6"
     >
-      <NuxtImg
+      <img
         :src="event.primary_icon"
         :alt="event.name + ' icon'"
         class="w-full h-full object-contain"
@@ -47,7 +47,7 @@ defineProps({
       v-if="event.secondary_icon && variant === 'solid'"
       class="w-6 h-6"
     >
-      <NuxtImg
+      <img
         :src="event.secondary_icon"
         :alt="event.name + ' icon'"
         class="w-full h-full object-contain"

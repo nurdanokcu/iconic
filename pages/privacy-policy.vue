@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { seoData } from '~/data/seoData';
+
+useSeoHead(seoData.privacyPolicy.title, seoData.privacyPolicy.description);
+</script>
+
 <template>
   <div class="mt-nav">
     <main class="max-content-centered-md min-h-screen-height flex flex-col py-16">
