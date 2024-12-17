@@ -49,9 +49,9 @@ const onSubmit = handleSubmit(async (values) => {
     });
     handleReset();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
+  } catch (error: any) {
     toast({
-      description: error.message,
+      description: error?.message || 'An error occurred',
       variant: 'error',
     });
   } finally {
@@ -77,6 +77,7 @@ const onSubmit = handleSubmit(async (values) => {
           <Input
             type="text"
             placeholder="Name Lastname"
+            autocomplete="name"
             v-bind="componentField"
           />
         </FormControl>
@@ -91,6 +92,7 @@ const onSubmit = handleSubmit(async (values) => {
         <FormControl>
           <Input
             type="email"
+            autocomplete="email"
             placeholder="info@iconic.com"
             v-bind="componentField"
           />
@@ -105,9 +107,9 @@ const onSubmit = handleSubmit(async (values) => {
         </FormLabel>
         <FormControl>
           <Textarea
-            id="message"
             placeholder="Type your message here"
             v-bind="componentField"
+            autocomplete="off"
           ></Textarea>
         </FormControl>
         <FormMessage />
@@ -118,6 +120,7 @@ const onSubmit = handleSubmit(async (values) => {
         <FormControl>
           <Checkbox
             :checked="componentField.modelValue"
+            name="terms"
             @update:checked="componentField.onChange"
           />
         </FormControl>
