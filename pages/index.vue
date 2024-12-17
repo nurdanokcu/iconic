@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
         <HomePromotionalModels class="centered-container lg:px-20" />
       </div>
       <HomeBlogPosts
-        class="px-8 py-16 mx-auto lg:max-w-page-width-md lg:px-20"
+        class="py-16 md:px-8 mx-auto lg:max-w-page-width-md lg:px-20"
       />
       <IconsDecor02 class="w-full object-contain max-w-lg mx-auto my-6" />
       <Contact class="px-4 py-16 mx-auto lg:max-w-page-width-md lg:px-20" />

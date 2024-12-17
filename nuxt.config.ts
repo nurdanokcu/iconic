@@ -21,10 +21,29 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
-        { rel: 'icon', href: '/icon-light.png', type: 'image/png', media: '(prefers-color-scheme: dark)' },
-        { rel: 'icon', href: '/icon-dark.png', type: 'image/png', media: '(prefers-color-scheme: light)' },
-        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192x192.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        {
+          rel: 'icon',
+          href: '/icon-light.png',
+          type: 'image/png',
+          media: '(prefers-color-scheme: dark)',
+        },
+        {
+          rel: 'icon',
+          href: '/icon-dark.png',
+          type: 'image/png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '192x192',
+          href: '/icon-192x192.png',
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+        },
       ],
     },
   },
@@ -69,16 +88,6 @@ export default defineNuxtConfig({
         {
           src: '/icon-256x256.png',
           sizes: '256x256',
-          type: 'image/png',
-        },
-        {
-          src: '/icon-384x384.png',
-          sizes: '384x384',
-          type: 'image/png',
-        },
-        {
-          src: '/icon-512x512.png',
-          sizes: '512x512',
           type: 'image/png',
         },
         {

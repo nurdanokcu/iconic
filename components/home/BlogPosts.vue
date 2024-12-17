@@ -69,7 +69,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="overflow-hidden">
     <h4
       class="font-foglihten text-5xl text-surface-secondary font-medium leading-tight"
     >
@@ -133,7 +133,7 @@ onMounted(async () => {
       :to="pagePaths.blogs"
       aria-label="See All Blogs"
       title="See All Blogs"
-      class="ml-auto w-fit flex mt-8"
+      class="ml-auto w-fit flex mt-8 mr-4 md:mr-0"
     >
       <Button
         as="span"

@@ -48,7 +48,6 @@ const onSubmit = handleSubmit(async (values) => {
       variant: 'success',
     });
     handleReset();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error: any) {
     toast({
       description: error?.message || 'An error occurred',
