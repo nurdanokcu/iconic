@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@nuxt/eslint',
     '@nuxtjs/robots',
-    'nuxt-seo-utils',
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@formkit/auto-animate/nuxt',
