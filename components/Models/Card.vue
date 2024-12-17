@@ -12,7 +12,7 @@ defineProps({
 <template>
   <span class="block relative group overflow-hidden min-w-60">
     <AspectRatio :ratio="7 / 10" class="relative">
-      <img
+      <NuxtImg
         :src="model.featured_photo"
         alt="Image"
         class="object-cover w-full h-full grayscale"

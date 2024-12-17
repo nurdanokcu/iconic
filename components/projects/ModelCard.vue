@@ -18,7 +18,7 @@ defineProps({
 <template>
   <span class="flex gap-2 items-center group">
     <span class="w-16 h-16 rounded-sm overflow-hidden">
-      <img
+      <NuxtImg
         v-if="image"
         :src="image"
         alt="Model Image"

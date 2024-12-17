@@ -41,7 +41,7 @@ const classes = computed(() =>
         :ratio="1 / 1"
         class="rounded-sm overflow-hidden relative z-10 shrink-0"
       >
-        <img
+        <NuxtImg
           class="w-full h-full object-cover grayscale"
           :src="blog.featured_image"
           :alt="blog.title"
@@ -74,6 +74,7 @@ const classes = computed(() =>
           class="h-10"
           :variant="variant === 'featured' ? 'default' : 'secondary'"
         >
+          <p class="sr-only">{{ `Read more about ${blog.title}` }}</p>
           <IconsAlignJustify />
         </Button>
       </NuxtLink>

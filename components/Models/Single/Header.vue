@@ -49,7 +49,7 @@ onUnmounted(() => {
   <header
     class="w-full h-screen-height relative overflow-hidden"
   >
-    <img
+    <NuxtImg
       :src="headerImage"
       :alt="modelName"
       :class="imageClass"

@@ -5,8 +5,6 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import type { TypeProject } from '~/types/projects';
 
-const { $viewport } = useNuxtApp();
-
 const props = defineProps({
   project: {
     type: Object as PropType<TypeProject>,
@@ -64,7 +62,7 @@ const finalPictures = computed(() => {
           class="h-full w-full"
         >
           <AspectRatio :ratio="16 / 9" class="w-full">
-            <img
+            <NuxtImg
               :src="image"
               alt="Project image"
               class="w-full h-full object-cover grayscale rounded-sm"

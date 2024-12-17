@@ -37,7 +37,7 @@ await fetchModel();
       :model-tags="currentModel.characteristics"
       :events="currentModel.events"
     />
-    <main class="">
+    <main class="py-12">
       <ModelsSingleEventTypes class="md:hidden" :events="currentModel.events" />
       <CommonFeaturedProject
         v-if="currentModel.featured_projects"

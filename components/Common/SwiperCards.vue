@@ -45,7 +45,7 @@ const reorderedData = computed(() => {
       <SwiperSlide v-for="(item, index) in reorderedData" :key="index">
         <AspectRatio :ratio="ratio">
           <div class="w-full h-full relative">
-            <img
+            <NuxtImg
               class="w-full h-full object-cover grayscale rounded-sm"
               :src="item"
               alt="room"

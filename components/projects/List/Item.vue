@@ -54,6 +54,7 @@ const featuredPictures = computed(() => props.project.featured_pictures || []);
           variant="secondary"
           class="w-full"
         >
+          <p class="sr-only">{{ `Read more about ${project.name}` }}</p>
           <IconsAlignJustify />
         </Button>
       </NuxtLink>

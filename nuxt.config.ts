@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@formkit/auto-animate/nuxt',
     'nuxt-viewport',
+    '@nuxt/image',
   ],
   devtools: { enabled: process.env.NODE_ENV === 'development' },
   app: {
@@ -45,6 +46,9 @@ export default defineNuxtConfig({
         semi: true,
       },
     },
+  },
+  image: {
+    formats: ['webp'],
   },
   pwa: {
     manifest: {

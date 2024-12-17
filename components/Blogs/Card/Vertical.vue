@@ -44,6 +44,7 @@ const classes = computed(() =>
           class="h-10"
           :variant="variant === 'featured' ? 'default' : 'secondary'"
         >
+          <p class="sr-only">{{ `Read more about ${blog.title}` }}</p>
           <IconsAlignJustify />
         </Button>
       </NuxtLink>

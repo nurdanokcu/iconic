@@ -24,9 +24,9 @@ const models = computed(() => props.project.featured_models.slice(0, 2));
 
 <template>
   <div
-    class="flex flex-col gap-16 w-full md:grid md:grid-cols-2 md:gap-16"
+    class="flex flex-col gap-4 w-full md:grid md:items-center md:grid-cols-2 xl:gap-16"
   >
-    <div class="relative w-full px-4">
+    <div class="relative w-full px-4 h-fit">
       <CommonSwiperCards :data="project.featured_pictures" />
       <IconsLongArrow class="h-full absolute top-0 bottom-0 left-0 -translate-x-1/2" />
     </div>

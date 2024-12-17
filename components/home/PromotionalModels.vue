@@ -101,7 +101,7 @@ onMounted(async () => {
           class="flex flex-col w-full gap-2 group max-w-80 mx-auto md:ml-auto"
         >
           <AspectRatio :ratio="1 / 1" class="relative overflow-hidden">
-            <img
+            <NuxtImg
               :src="model.featured_photo"
               alt="Model"
               class="object-cover w-full h-full object-top grayscale transform transition-transform duration-500 group-hover:scale-110"

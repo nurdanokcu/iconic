@@ -15,7 +15,7 @@ defineProps({
   <div class="py-16 flex flex-col gap-4 md:gap-16 md:grid grid-cols-6 md:items-center">
     <div class="flex flex-col gap-4 md:col-span-3 xl:col-span-2">
       <ProjectsListItemDetails
-        :event="project.event"
+        :event="project.events"
         :date="project.date"
         :name="project.name"
         :description="project.featured_description"

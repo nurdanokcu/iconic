@@ -125,7 +125,7 @@ imageClasses.value = child;
           :class="imageClasses[groupIndex][index]"
           class="max-md:aspect-video w-full h-full relative"
         >
-          <img
+          <NuxtImg
             class="w-full h-full absolute inset-0 object-cover grayscale"
             :src="image"
             alt="Model Image"
