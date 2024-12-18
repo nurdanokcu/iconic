@@ -142,6 +142,9 @@
     -webkit-text-stroke-width: 0.5px;
   }
 }
+p.text-xs.font-light.text-center.p-2.pt-0.text-backgroundContrast {
+  display:none !important;
+}
 
 html {
   font-family: "Montserrat", sans-serif;
