@@ -25,16 +25,16 @@ export const projectsApi = () => {
     });
     return response as AsyncData<ResponseSingleProject, ErrorType>;
   };
-  const fetchFeaturedClient = async () => {
+  const fetchFeaturedSSR = async () => {
     const requestURL = '/api/v1/projects?is_featured=true';
-    const response = await fetchWrapper<ResponseSingleProject>(requestURL, {
+    const response = await useFetchWrapper(requestURL, {
       method: 'GET',
     });
-    return response;
+    return response as AsyncData<ResponseSingleProject, ErrorType>;
   };
   return {
     fetchProjectsSSR,
     fetchSingleProjectsSSR,
-    fetchFeaturedClient,
+    fetchFeaturedSSR,
   };
 };

@@ -71,7 +71,7 @@ onMounted(async () => {
 <template>
   <div class="overflow-hidden">
     <h4
-      class="font-foglihten text-5xl text-surface-secondary font-medium leading-tight"
+      class="font-foglihten text-5xl text-surface-secondary font-medium leading-tight px-4 md:px-0"
     >
       Blog
     </h4>

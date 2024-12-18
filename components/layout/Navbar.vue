@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { menuLinks } from '~/config/paths';
 
 const { isLockScreenVisible, disableScroll } = useLockScreen();
+const { globalSettings } = useWebsiteSettings();
 
 const isOpen = ref(false);
 const toggle = () => {
@@ -31,10 +32,18 @@ const handleClick = () => {
         class="flex items-center gap-8"
         @click="handleClick"
       >
-        <p class="sr-only">
+        <span class="sr-only">
           Go to the home page
-        </p>
-        <IconsLogoCombined color="var(--black)" class="h-auto" />
+        </span>
+        <span class="w-[236px] h-[50px]">
+          <NuxtImg
+            :src="globalSettings.website_logo"
+            alt="Logo"
+            class="w-full h-full object-contain"
+          />
+
+        </span>
+
       </NuxtLink>
       <div class="hidden md:flex gap-4 items-center">
         <NuxtLink

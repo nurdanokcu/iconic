@@ -1,14 +1,6 @@
 <script setup lang="ts">
-import {
-  slider01,
-  slider02,
-  slider03,
-  slider04,
-  slider05,
-} from '~/assets/images';
-
 defineEmits(['onScrollButton']);
-const images = [slider01, slider02, slider03, slider04, slider05];
+const { globalSettings } = useWebsiteSettings();
 </script>
 
 <template>
@@ -16,7 +8,7 @@ const images = [slider01, slider02, slider03, slider04, slider05];
     <ModelsSwiper
       height-classes="h-full"
       pagination-align="center"
-      :images="images"
+      :images="globalSettings.homepage_slider_images"
     />
     <Button
       variant="tertiary"

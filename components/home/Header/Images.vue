@@ -1,33 +1,5 @@
 <script setup lang="ts">
-import { image01, image02, carIcon } from '~/assets/images';
-
-const singleModal = {
-  id: 1,
-  name: 'AISHWARYA gupta',
-  featured_photo: image01,
-  images: [],
-  cover_photo: image02,
-  characteristics: [
-    '5\'10"',
-    'shoe 9',
-    'size 2',
-    'h34',
-    'w24',
-    'b32',
-    'hair brown',
-    'eyes brown',
-  ],
-  slug: 'aishwarya-gupta',
-  role: 'Lead Model',
-  is_promotional: false,
-  events: [{
-    id: 1,
-    name: 'Car Shows',
-    primary_icon: carIcon,
-    secondary_icon: carIcon,
-    slug: 'fashion',
-  }],
-};
+const { globalSettings } = useWebsiteSettings();
 </script>
 
 <template>
@@ -38,7 +10,7 @@ const singleModal = {
       <div class="w-3/6 max-w-72 md:max-w-96 md:w-full">
         <AspectRatio :ratio="1 / 1">
           <img
-            :src="singleModal.featured_photo"
+            :src="globalSettings.homepage_primary_image"
             alt="Image"
             class="object-cover grayscale w-full h-full"
           />
@@ -47,12 +19,12 @@ const singleModal = {
       <div class="w-2/6 flex flex-col gap-6 relative md:w-full">
         <ModelsInfo
           class="hidden md:flex max-w-64 xl:max-w-80"
-          :model="singleModal"
+          :model="globalSettings.homepage_featured_model"
         />
         <div class="w-full max-w-44">
           <AspectRatio :ratio="1 / 1">
             <img
-              :src="singleModal.cover_photo"
+              :src="globalSettings.homepage_secondary_image"
               alt="Image"
               class="object-cover w-full h-full grayscale"
             />
